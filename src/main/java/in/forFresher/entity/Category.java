@@ -1,6 +1,5 @@
 package in.forFresher.entity;
 
-import java.sql.Timestamp;
 import java.util.Set;
 
 import jakarta.persistence.CascadeType;
@@ -12,27 +11,15 @@ import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
 
 @Entity
-public class Company {
-
+public class Category {
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private long id;
+	private Long id;
 	
 	@Column(nullable = false)
 	private String name;
 	
-	@Column(nullable = false)
-	private String about; 
-
-	@Column(nullable = false, length = 600)
-	private String companyLogoLink;
-	
-	@OneToMany(mappedBy = "company", cascade = CascadeType.ALL)
+	@OneToMany(mappedBy = "category", cascade = CascadeType.ALL)
 	private Set<Jobs> jobs;
-
-	@Column(nullable = false)
-	private Timestamp created_at;
-
-	@Column(nullable = false)
-	private Timestamp updated_at;
 }
