@@ -87,8 +87,8 @@ public class Jobs {
 	@Column(name = "updated_at")
 	private Timestamp updatedAt;
 	
-	@Column(nullable = false)
 	@ManyToOne
+    @JoinColumn(name = "author_id", nullable = false)
 	private Users author;
 	
 	//published status - Draft(-1), Unpublished(0), published(1)
