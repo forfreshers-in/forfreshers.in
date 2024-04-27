@@ -22,4 +22,30 @@ public class Category {
 	
 	@OneToMany(mappedBy = "category", cascade = CascadeType.ALL)
 	private Set<Jobs> jobs;
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public Set<Jobs> getJobs() {
+		return jobs;
+	}
+
+	public void setJobs(Set<Jobs> jobs) {
+		this.jobs = jobs;
+	}
+	
+	
 }

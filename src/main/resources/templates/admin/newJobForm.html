@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+<meta name="description" content="" />
+<meta name="author" content="saravanan" />
+<title>Admin</title>
+<!-- loader-->
+<link href="/assets/css/pace.min.css" rel="stylesheet" />
+<script src="/assets/js/pace.min.js"></script>
+<!--favicon-->
+<!-- Vector CSS -->
+<link href="/assets/plugins/vectormap/jquery-jvectormap-2.0.2.css"
+	rel="stylesheet" />
+<!-- simplebar CSS-->
+<link href="/assets/plugins/simplebar/css/simplebar.css"
+	rel="stylesheet" />
+<!-- Bootstrap core CSS-->
+<link href="/assets/css/bootstrap.min.css" rel="stylesheet" />
+<!-- animate CSS-->
+<link href="/assets/css/animate.css" rel="stylesheet" type="text/css" />
+<!-- Icons CSS-->
+<link href="/assets/css/icons.css" rel="stylesheet" type="text/css" />
+<!-- Sidebar CSS-->
+<link href="/assets/css/sidebar-menu.css" rel="stylesheet" />
+<!--  mulltiselect magicsuggest -->
+<link href="/assets/plugins/multiselectMagicSuggest/magicsuggest.css"
+	rel="stylesheet" />
+
+<!-- quill text editor stylesheet -->
+<link
+	href="https://cdn.jsdelivr.net/npm/quill@2.0.0/dist/quill.snow.css"
+	rel="stylesheet" />
+
+<!--  mulltiselect magicsuggest -->
+<link href="/assets/plugins/year-picker/yearpicker.css" rel="stylesheet" />
+
+<!-- Custom Style-->
+<link href="/assets/css/app-style.css" rel="stylesheet" />
+
+
+</head>
+
+<body class="bg-theme bg-theme1">
+
+	<!-- Start wrapper-->
+	<div id="wrapper">
+
+		<!--Start sidebar-wrapper-->
+		<div th:include="admin/component/sidebar :: sidebar"></div>
+		<!--End sidebar-wrapper-->
+
+		<!--Start topbar header-->
+		<header class="topbar-nav">
+			<div th:replace="~{admin/component/navbar :: navbar}"></div>
+		</header>
+		<!--End topbar header-->
+
+		<div class="clearfix"></div>
+
+		<div class="content-wrapper">
+			<div class="container-fluid">
+
+				<!--Start Dashboard Content-->
+
+				<div class="card mt-3">
+					<div class="card-content"></div>
+				</div>
+
+				<div class="row">
+					<div class="col-12 col-lg-8 col-xl-8">
+						<div class="card">
+							<div class="card-header">
+								Add Job
+								<div class="card-action">
+									<div class="dropdown">
+										<a href="javascript:void();"
+											class="dropdown-toggle dropdown-toggle-nocaret"
+											data-toggle="dropdown"> <i class="icon-options"></i>
+										</a>
+										<div class="dropdown-menu dropdown-menu-right">
+											<a class="dropdown-item" href="javascript:void();">Action</a>
+											<a class="dropdown-item" href="javascript:void();">Another
+												action</a> <a class="dropdown-item" href="javascript:void();">Something
+												else here</a>
+											<div class="dropdown-divider"></div>
+											<a class="dropdown-item" href="javascript:void();">Separated
+												link</a>
+										</div>
+									</div>
+								</div>
+
+							</div>
+							<div class="card-body">
+
+								<form>
+									<div class="form-group">
+										<label for="add-form-title">title</label> <input type="text"
+											class="form-control" id="add-form-title" name="title"
+											placeholder="Enter job title">
+									</div>
+									<div class="form-group">
+										<label for="company-name-datalist">company</label> <input
+											type="text" class="form-control"
+											placeholder="Enter Company name" list="company-name-list"
+											id="company-name-datalist">
+										<datalist id="company-name-list">
+											<option>Asia/Aden</option>
+											<option>Asia/Aqtau</option>
+											<option>Asia/Baghdad</option>
+											<option>Asia/Barnaul</option>
+											<option>Asia/Chita</option>
+											<option>Asia/Dhaka</option>
+											<option>Asia/Famagusta</option>
+											<option>Asia/Hong_Kong</option>
+											<option>Asia/Jayapura</option>
+											<option>Asia/Kuala_Lumpur</option>
+											<option>Asia/Jakarta</option>
+										</datalist>
+									</div>
+									<div class="form-group">
+										<label for="positions-input">positions</label> <input
+											type="text" class="form-control" id="positions-input"
+											placeholder="Enter positions">
+									</div>
+									<div class="form-group">
+										<label for="locations-input">locations</label> <input
+											type="text" class="form-control" id="locations-input"
+											placeholder="Enter locations">
+									</div>
+
+									<div class="form-group">
+										<label for="types-input">Types ex:hybrid, wfh..,</label> <input
+											type="text" class="form-control" id="types-input"
+											placeholder="Enter job Type ex: hybrid, WFH..,">
+									</div>
+
+									<div class="form-group">
+										<label for="category-input">Category</label> <input
+											type="text" class="form-control" id="category-input"
+											placeholder="Enter category" list="categorye-list">
+										<datalist id="categorye-list">
+											<option>Asia/Aden</option>
+											<option>Asia/Aqtau</option>
+											<option>Asia/Baghdad</option>
+											<option>Asia/Barnaul</option>
+											<option>Asia/Chita</option>
+											<option>Asia/Dhaka</option>
+											<option>Asia/Famagusta</option>
+											<option>Asia/Hong_Kong</option>
+											<option>Asia/Jayapura</option>
+											<option>Asia/Kuala_Lumpur</option>
+											<option>Asia/Jakarta</option>
+										</datalist>
+									</div>
+									<div class="form-group">
+										<label for="qualifications-input">Qualifications</label> <input
+											type="text" class="form-control" id="qualifications-input"
+											placeholder="Enter qualifications">
+									</div>
+
+									<div class="form-group">
+										<label for="description-input">description <span
+											class="disable">optional</span></label>
+										<div type="text" class="form-control" id="description-input"
+											placeholder="Enter description"></div>
+									</div>
+
+									<div
+										class="form-group d-flex justify-content-between align-items-baseline">
+										<label for="batch-from-input">Batch from</label> <input
+											type="number" class="form-control col-3"
+											id="batch-from-input" placeholder="Enter batch"> 
+											
+											<label
+											for="batch-to-input">Batch to</label> <input type="number"
+											class="form-control col-3" id="batch-to-input"
+											placeholder="Enter batch">
+									</div>
+
+									<div
+										class="form-group d-flex justify-content-between align-items-baseline">
+										<label for="salary-from-input">min salary(LPA)</label> <input
+											type="number" class="form-control col-3"
+											id="salary-from-input" placeholder="Enter salary in LPA" /> <label
+											for="salary-to-input">max salary(LPA)</label> <input
+											type="number" class="form-control col-3" id="salary-to-input"
+											placeholder="Enter salary in LPA">
+									</div>
+
+									<div class="form-group border border-light-3 rounded p-2">
+										<p class="text-center">for<strong> walk in drive</strong></p>
+										<div class="d-flex justify-content-between flex-wrap">
+											<div class="">
+												<label for="start-date-time-input">start date <span
+													class="disable"></span></label> <input type="datetime-local"
+													class="form-control" id="start-date-time-input">
+											</div>
+											<div class="">
+												<label for="end-date-time-input">end date <span
+													class=" text-lowercase">(optional)</span></label> <input type="datetime-local"
+													class="form-control" id="end-date-time-input">
+													<small> fill if you know</small>
+											</div>
+										</div>
+										<small>Ignore it if your entry is not walk in drive or not contain any specific date</small>
+									</div>
+									
+									<div class="form-group">
+											<label for="apply-link-input">Apply link</label>
+											<input class="form-control" type="text" id="apply-link-input"
+												 /> 
+												<small>Apply link must be company's job page or direct application form only</small>
+									</div>
+									
+									<div class="form-group">
+										<label for="hr-mail-input">Hr/Recruiter Mail address</label>
+											<input type="text" id="hr-mail-input"
+												 class="form-control" /> 
+									</div>
+
+									<div class="form-group">
+										<label for="expiry-input">expiry at <small class="lowercase">(auto remove)</small></label>
+											<input type="date" id="expiry-input"
+												 class="form-control" /> 
+										<small>Default: 3 month from your creation</small>
+									</div>
+
+									<div class="form-group py-2">
+										<div class="icheck-material-white">
+											<input type="checkbox" id="user-checkbox1" checked=""
+												title="name" /> <label for="user-checkbox1">I Agree
+												Terms & Conditions</label>
+										</div>
+									</div>
+									<div class="form-group d-flex flex-wrap justify-content-around">
+										<button type="submit" class="btn btn-dark px-5 disabled m-2">
+											<i class="icon-lock"></i> save draft
+										</button>
+										<button type="submit" class="btn btn-secondary px-5 disabled m-2">
+											<i class="zmdi zmdi-eye"></i> preview
+										</button>
+										<button type="submit" class="btn btn-success px-5 m-2">
+											<i class="zmdi zmdi-mail-send"></i> publish
+										</button>
+									</div>
+								</form>
+
+							</div>
+
+							<div
+								class="row m-0 row-group text-center border-top border-light-3">
+								<div class="col-12 col-lg-4">
+									<div class="p-3">
+										<h5 class="mb-0">45.87M</h5>
+										<small class="mb-0">Overall Visitor <span> <i
+												class="fa fa-arrow-up"></i> 2.43%
+										</span></small>
+									</div>
+								</div>
+								<div class="col-12 col-lg-4">
+									<div class="p-3">
+										<h5 class="mb-0">15:48</h5>
+										<small class="mb-0">Visitor Duration <span> <i
+												class="fa fa-arrow-up"></i> 12.65%
+										</span></small>
+									</div>
+								</div>
+								<div class="col-12 col-lg-4">
+									<div class="p-3">
+										<h5 class="mb-0">245.65</h5>
+										<small class="mb-0">Pages/Visit <span> <i
+												class="fa fa-arrow-up"></i> 5.62%
+										</span></small>
+									</div>
+								</div>
+							</div>
+
+						</div>
+					</div>
+
+					<div class="col-12 col-lg-4 col-xl-4">
+						<div class="card">
+							<div class="card-header">
+								Weekly sales
+								<div class="card-action">
+									<div class="dropdown">
+										<a href="javascript:void();"
+											class="dropdown-toggle dropdown-toggle-nocaret"
+											data-toggle="dropdown"> <i class="icon-options"></i>
+										</a>
+										<div class="dropdown-menu dropdown-menu-right">
+											<a class="dropdown-item" href="javascript:void();">Action</a>
+											<a class="dropdown-item" href="javascript:void();">Another
+												action</a> <a class="dropdown-item" href="javascript:void();">Something
+												else here</a>
+											<div class="dropdown-divider"></div>
+											<a class="dropdown-item" href="javascript:void();">Separated
+												link</a>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="card-body">
+								<div class="chart-container-2">
+									<canvas id="chart2"></canvas>
+								</div>
+							</div>
+							<div class="table-responsive">
+								<table class="table align-items-center">
+									<tbody>
+										<tr>
+											<td><i class="fa fa-circle text-white mr-2"></i> Direct</td>
+											<td>$5856</td>
+											<td>+55%</td>
+										</tr>
+										<tr>
+											<td><i class="fa fa-circle text-light-1 mr-2"></i>Affiliate</td>
+											<td>$2602</td>
+											<td>+25%</td>
+										</tr>
+										<tr>
+											<td><i class="fa fa-circle text-light-2 mr-2"></i>E-mail</td>
+											<td>$1802</td>
+											<td>+15%</td>
+										</tr>
+										<tr>
+											<td><i class="fa fa-circle text-light-3 mr-2"></i>Other</td>
+											<td>$1105</td>
+											<td>+5%</td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!--End Row-->
+
+				<div class="row">
+					<div class="col-12 col-lg-12">
+						<div class="card">
+							<div class="card-header">
+								Recent Order Tables
+								<div class="card-action">
+									<div class="dropdown">
+										<a href="javascript:void();"
+											class="dropdown-toggle dropdown-toggle-nocaret"
+											data-toggle="dropdown"> <i class="icon-options"></i>
+										</a>
+										<div class="dropdown-menu dropdown-menu-right">
+											<a class="dropdown-item" href="javascript:void();">Action</a>
+											<a class="dropdown-item" href="javascript:void();">Another
+												action</a> <a class="dropdown-item" href="javascript:void();">Something
+												else here</a>
+											<div class="dropdown-divider"></div>
+											<a class="dropdown-item" href="javascript:void();">Separated
+												link</a>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="table-responsive">
+								<table
+									class="table align-items-center table-flush table-borderless">
+									<thead>
+										<tr>
+											<th>Product</th>
+											<th>Photo</th>
+											<th>Product ID</th>
+											<th>Amount</th>
+											<th>Date</th>
+											<th>Shipping</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<td>Iphone 5</td>
+											<td><img src="https://via.placeholder.com/110x110"
+												class="product-img" alt="product img"></td>
+											<td>#9405822</td>
+											<td>$ 1250.00</td>
+											<td>03 Aug 2017</td>
+											<td><div class="progress shadow" style="height: 3px;">
+													<div class="progress-bar" role="progressbar"
+														style="width: 90%"></div>
+												</div></td>
+										</tr>
+
+										<tr>
+											<td>Earphone GL</td>
+											<td><img src="https://via.placeholder.com/110x110"
+												class="product-img" alt="product img"></td>
+											<td>#9405820</td>
+											<td>$ 1500.00</td>
+											<td>03 Aug 2017</td>
+											<td><div class="progress shadow" style="height: 3px;">
+													<div class="progress-bar" role="progressbar"
+														style="width: 60%"></div>
+												</div></td>
+										</tr>
+
+										<tr>
+											<td>HD Hand Camera</td>
+											<td><img src="https://via.placeholder.com/110x110"
+												class="product-img" alt="product img"></td>
+											<td>#9405830</td>
+											<td>$ 1400.00</td>
+											<td>03 Aug 2017</td>
+											<td><div class="progress shadow" style="height: 3px;">
+													<div class="progress-bar" role="progressbar"
+														style="width: 70%"></div>
+												</div></td>
+										</tr>
+
+										<tr>
+											<td>Clasic Shoes</td>
+											<td><img src="https://via.placeholder.com/110x110"
+												class="product-img" alt="product img"></td>
+											<td>#9405825</td>
+											<td>$ 1200.00</td>
+											<td>03 Aug 2017</td>
+											<td><div class="progress shadow" style="height: 3px;">
+													<div class="progress-bar" role="progressbar"
+														style="width: 100%"></div>
+												</div></td>
+										</tr>
+
+										<tr>
+											<td>Hand Watch</td>
+											<td><img src="https://via.placeholder.com/110x110"
+												class="product-img" alt="product img"></td>
+											<td>#9405840</td>
+											<td>$ 1800.00</td>
+											<td>03 Aug 2017</td>
+											<td><div class="progress shadow" style="height: 3px;">
+													<div class="progress-bar" role="progressbar"
+														style="width: 40%"></div>
+												</div></td>
+										</tr>
+
+										<tr>
+											<td>Clasic Shoes</td>
+											<td><img src="https://via.placeholder.com/110x110"
+												class="product-img" alt="product img"></td>
+											<td>#9405825</td>
+											<td>$ 1200.00</td>
+											<td>03 Aug 2017</td>
+											<td><div class="progress shadow" style="height: 3px;">
+													<div class="progress-bar" role="progressbar"
+														style="width: 100%"></div>
+												</div></td>
+										</tr>
+
+									</tbody>
+								</table>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!--End Row-->
+
+				<!--End Dashboard Content-->
+
+				<!--start overlay-->
+				<div class="overlay toggle-menu"></div>
+				<!--end overlay-->
+
+			</div>
+			<!-- End container-fluid-->
+
+		</div>
+		<!--End content-wrapper-->
+		<!--Start Back To Top Button-->
+		<a href="javaScript:void();" class="back-to-top"><i
+			class="fa fa-angle-double-up"></i> </a>
+		<!--End Back To Top Button-->
+
+		<!--Start footer-->
+		<footer class="footer">
+			<div class="container">
+				<div class="text-center">Copyright © 2024 forfreshers Admin</div>
+			</div>
+		</footer>
+		<!--End footer-->
+
+		<!--start color switcher-->
+		<div th:include="admin/component/colorSwitcher :: colorSwitcher"></div>
+		<!--end color switcher-->
+
+	</div>
+	<!--End wrapper-->
+
+	<!-- Bootstrap core JavaScript-->
+	<script src="/assets/js/jquery.min.js"></script>
+	<script src="/assets/js/popper.min.js"></script>
+	<script src="/assets/js/bootstrap.min.js"></script>
+
+	<!-- simplebar js -->
+	<script src="/assets/plugins/simplebar/js/simplebar.js"></script>
+	<!-- sidebar-menu js -->
+	<script src="/assets/js/sidebar-menu.js"></script>
+	<!-- loader scripts -->
+	<script src="/assets/js/jquery.loading-indicator.js"></script>
+	<!-- Custom scripts -->
+	<script src="/assets/js/app-script.js"></script>
+	<!-- Chart js -->
+
+	<script src="/assets/plugins/Chart.js/Chart.min.js"></script>
+
+	<!-- datalist for inputs autofulling -->
+	<script type="text/javascript"
+		src="/assets/plugins/autocomplete/bootstrap-autocomplete.js"></script>
+
+	<!-- multi select magicSuggest -->
+	<script type="text/javascript"
+		src="/assets/plugins/multiselectMagicSuggest/magicsuggest.js"></script>
+
+	<!-- Include the Quill library -->
+	<script src="https://cdn.jsdelivr.net/npm/quill@2.0.0/dist/quill.js"></script>
+
+	<!--  year picker text input -->
+	<script type="text/javascript"
+		src="/assets/plugins/year-picker/yearpicker.js"></script>
+
+	<!-- Index js -->
+	<script src="/assets/js/newJobForm.js"></script>
+
+</body>
+</html>

@@ -7,10 +7,11 @@ import org.springframework.web.bind.annotation.GetMapping;
 @Controller
 public class ApplicationController {
 	
-	@GetMapping(value="/")
+	@GetMapping(value = "/")
 	public String getHome(Model model) {
 		model.addAttribute("name", "saravanan");
-		return "homePage";
+		System.out.println(" base method called");
+		return "index";
 	}
 	
 	@GetMapping(value = "/about")
@@ -22,7 +23,7 @@ public class ApplicationController {
 		return "contactPage";
 	}
 	
-	@GetMapping(value = "privacy-policy")
+	@GetMapping(value = "/privacy-policy")
 	public String getPrivacyPolicy() {
 		return "privacy-policy";
 	}
