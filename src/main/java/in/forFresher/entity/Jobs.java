@@ -277,5 +277,18 @@ public class Jobs {
 	public void setPublished(byte published) {
 		this.published = published;
 	}
+
+	@Override
+	public String toString() {
+		return "Jobs [id=" + id + ", title=" + title + ", company=" + company + ", locations=" + locations
+				+ ", category=" + category + ", dateAndTime=" + dateAndTime + ", lastDate=" + lastDate + ", applyLink="
+				+ applyLink + ", hrMail=" + hrMail + ", fromBatch=" + fromBatch + ", toBatch=" + toBatch
+				+ ", positions=" + positions + ", description=" + description + ", qualification=" + qualification
+				+ ", minSalary=" + minSalary + ", maxSalary=" + maxSalary + ", expiredAt=" + expiredAt + ", createdAt="
+				+ createdAt + ", updatedAt=" + updatedAt + ", types=" + types + ", author=" + author + ", published="
+				+ published + "]";
+	}
+	
+	
 	
 }
