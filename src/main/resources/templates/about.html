@@ -5,67 +5,325 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <meta charset="UTF-8">
-<title>About forfreshers.in</title>
+<link rel="stylesheet" href="css/bootstrap/bootstrap.min.css">
+<link rel="stylesheet" href="solstice-assets/fonts/fonts.css">
+<!--  mail css -->
+<link rel="stylesheet" href="css/main.css">
+<!-- awasome fonts -->
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+<title>About forfreshers.in</title> 
+<meta name="description"
+	content="Our platform is dedicated to providing only genuine job openings, ensuring a safe and reliable space for job seekers. We carefully curate job posts to eliminate any fake listings or consultancy-driven ads. Your trust in finding real opportunities is our top priority">
+
+<meta property="og:title" content="About ForFreshers.in">
+<meta property="og:description"
+	content="Our platform is dedicated to providing only genuine job openings, ensuring a safe and reliable space for job seekers. We carefully curate job posts to eliminate any fake listings or consultancy-driven ads. Your trust in finding real opportunities is our top priority">
+<meta property="og:image"
+	content="https://www.forfreshers.in/solstice-assets/images/logos/logoWithName.png">
+<meta property="og:url" content="'https://www.forfreshers.in/about">
+
+<link rel="canonical" href="'https://www.forfreshers.in/about">
+
+<meta name="author" content="Saravanan Raja">
+
 </head>
 <body>
 	<header>
-		<div th:include="component/navbar :: navbar"></div>
+		<div th:insert="~{layout/navbar :: navbar}"></div>
 	</header>
 	<section class="pb-12 pb-lg-24">
 
-		<div class="position-relative mw-7xl mx-auto py-12">
-			<div class="position-absolute top-0 start-0 w-100 row">
-				<div class="col-3">
-					<div class="rounded-3 py-32 mb-12 mb-md-6"
-						style="background: linear-gradient(180deg, rgba(248, 248, 248, 0.00) 0%, #F8F8F8 100%);"></div>
+		<div class="container position-relative">
+			<div class="position-absolute top-0 h-100 start-0 ms-md-14">
+				<svg width="500" height="500" viewbox="0 0 500 500" fill="none"
+					xmlns="http://www.w3.org/2000/svg">
+              <path
+						d="M0.5 498.311V304.054C0.5 136.406 136.406 0.5 304.054 0.5H498.311C498.967 0.5 499.5 1.03289 499.5 1.68919V136.561C499.5 137.217 498.967 137.75 498.311 137.75H342.061C290.59 137.75 239.516 163.123 201.319 201.319C163.123 239.516 137.75 290.59 137.75 342.061V498.311C137.75 498.967 137.217 499.5 136.561 499.5H1.68919C1.03249 499.5 0.5 498.967 0.5 498.311Z"
+						fill="url(#paint0_linear_231_9230)" stroke="#F0F0F0"></path>
+              <defs>
+					<lineargradient id="paint0_linear_231_9230" x1="0" y1="500"
+						x2="500" y2="0" gradientunits="userSpaceOnUse">
+					<stop stop-color="#F8F8F8">
+					<stop offset="1" stop-color="#F8F8F8" stop-opacity="0"></stop></stop></lineargradient></defs>
+            </svg>
+			</div>
+			<div class="position-absolute top-0 h-100 end-0 me-md-14">
+				<svg width="500" height="500" viewbox="0 0 500 500" fill="none"
+					xmlns="http://www.w3.org/2000/svg">
+              <path
+						d="M499.5 1.68919V195.946C499.5 363.594 363.594 499.5 195.946 499.5H1.68919C1.03289 499.5 0.5 498.967 0.5 498.311V363.439C0.5 362.783 1.03289 362.25 1.68919 362.25H157.939C209.41 362.25 260.484 336.877 298.681 298.681C336.877 260.484 362.25 209.41 362.25 157.939V1.68919C362.25 1.03289 362.783 0.5 363.439 0.5H498.311C498.967 0.5 499.5 1.03289 499.5 1.68919Z"
+						fill="url(#paint0_linear_231_9229)" stroke="#F0F0F0"></path>
+              <defs>
+					<lineargradient id="paint0_linear_231_9229" x1="499.998"
+						y1="2.85805e-05" x2="8.49831" y2="500"
+						gradientunits="userSpaceOnUse">
+					<stop stop-color="#F8F8F8">
+					<stop offset="1" stop-color="#F8F8F8" stop-opacity="0"></stop></stop></lineargradient></defs>
+            </svg>
+			</div>
+			<div
+				class="position-relative pt-24 pb-12 pb-md-32 mw-3xl mx-auto text-center">
+				<h1 class="font-heading">About Us</h1>
+				<p>Our platform is dedicated to providing only genuine job
+					openings, ensuring a safe and reliable space for job seekers. We
+					carefully curate job posts to eliminate any fake listings or
+					consultancy-driven ads. Your trust in finding real opportunities is
+					our top priority</p>
+				<div class="">
+					<a href="#team" class="px-4"> <i class="fa-solid fa-people-group"></i> Our Team</a> <a href="#get-in-touch"
+						class="px-4"><i class="fa-solid fa-handshake-simple"></i> Get in touch</a>
+				</div>
+			</div>
+			<div
+				class="position-relative mw-sm mw-md-xl mx-auto mw-lg-none mb-20 mb-md-32 border py-10 bg-white rounded-3">
+				<div class="row">
 					<div
-						class="d-flex pt-6 px-4 align-items-end justify-content-center bg-primary-light rounded-3">
-						<img class="img-fluid"
-							src="solstice-assets/images/hero/woman-picture.png" alt="">
+						class="col-12 col-md-6 col-lg-4 mb-4 mb-md-0 position-relative">
+						<div
+							class="d-none d-md-block position-absolute top-0 h-100 end-0 border-end"></div>
+						<div class="text-center py-4 py-lg-0">
+							<span class="d-block mb-2 text-light-dark">Founded</span> <span
+								class="h2 fw-semibold">2024</span>
+						</div>
 					</div>
-				</div>
-				<div class="col-3">
-					<div class="rounded-3 py-32 mb-6"
-						style="background: linear-gradient(180deg, rgba(248, 248, 248, 0.00) 0%, rgba(248, 248, 248, 0.50) 100%);"></div>
-				</div>
-				<div class="col-3">
-					<div class="rounded-3 py-32 mb-6"
-						style="background: linear-gradient(180deg, rgba(248, 248, 248, 0.00) 0%, rgba(248, 248, 248, 0.50) 100%);"></div>
-				</div>
-				<div class="col-3">
-					<div class="rounded-3 py-32 mb-40 mb-md-24"
-						style="background: linear-gradient(180deg, rgba(248, 248, 248, 0.00) 0%, #F8F8F8 100%);"></div>
 					<div
-						class="d-flex pt-6 px-4 align-items-end justify-content-center bg-primary rounded-3">
-						<img class="img-fluid"
-							src="solstice-assets/images/hero/man-picture.png" alt="">
+						class="col-12 col-md-6 col-lg-4 mb-4 mb-md-0 position-relative">
+						<div
+							class="d-none d-md-block position-absolute top-0 h-100 end-0 border-end"></div>
+						<div class="text-center py-4 py-lg-0">
+							<span class="d-block mb-2 text-light-dark">Team members</span> <span
+								class="h2 fw-semibold">10+</span>
+						</div>
+					</div>
+					<div class="col-12 col-md-6 col-lg-4">
+						<div class="text-center py-4 py-lg-0">
+							<span class="d-block mb-2 text-light-dark">Nationality</span> <span
+								class="h2 fw-semibold">India</span>
+						</div>
 					</div>
 				</div>
 			</div>
-			<div class="container position-relative">
-				<div class="mw-4xl mx-auto mb-24 text-center">
-					<span
-						class="badge mb-6 d-inline-flex align-items-center border border-info lh-base shadow">
-						<svg width="10" height="10" viewbox="0 0 10 10" fill="none"
-							xmlns="http://www.w3.org/2000/svg">
-							<circle cx="5" cy="5" r="5" fill="#FF7100"></circle></svg> <span
-						class="ms-2 fw-semibold">1236</span> <span
-						class="ms-1 text-light-dark">Online</span>
-					</span>
-					<h1 class="font-heading mb-6">
-						We are showing you <span class="" style="color: #ff7100;">
-							Careers</span>, Not a Job
-					</h1>
-					<p class="mw-xl mx-auto fs-5 text-light-dark mb-10">Fuel your
-						curiosity, expand your horizons, and achieve greatness by joining
-						a vibrant community of learners.</p>
-					<a class="btn btn-primary border-primary-dark" href="#">Study
-						Together Now</a>
+			<div class="position-relative mw-md mx-auto mw-md-5xl mx-auto">
+
+				<div class="mb-20 mb-md-32">
+					<div class="row">
+						<div class="col-12 col-md-6 mb-8 mb-md-0 text-center">
+							<h3 class="font-heading mb-20">We are with values</h3>
+							<div class= "h-50 hidden-overlay">
+								<img
+								class="img-fluid rounded-3 filter-blue-orange"
+								th:src="@{/images/anims/value-obstack-people.webp}" alt="">
+							</div>
+						</div>
+						<div class="col-12 col-md-6">
+							<div class="d-flex flex-column mw-md h-100">
+								<p class="text-light-dark mb-6 text-indend">At our core, we
+									believe that job seekers deserve a trustworthy platform where
+									they can explore career opportunities without the fear of
+									encountering misleading or fraudulent postings. We understand
+									the frustration and time wasted when sifting through countless
+									fake job ads, and we are committed to changing that experience
+									for you.</p>
+								<ul class="list-unstyled mb-16">
+									<li class="d-flex mb-2 align-items-center">
+										<div
+											class="d-inline-flex me-3 align-items-center justify-content-center rounded-pill bg-primary border border-primary-dark">
+											<svg width="16" height="16" viewbox="0 0 16 16" fill="none"
+												xmlns="http://www.w3.org/2000/svg">
+                            <path
+													d="M12.4733 4.8067C12.4114 4.74421 12.3376 4.69461 12.2564 4.66077C12.1752 4.62692 12.088 4.6095 12 4.6095C11.912 4.6095 11.8249 4.62692 11.7436 4.66077C11.6624 4.69461 11.5886 4.74421 11.5267 4.8067L6.56001 9.78003L4.47334 7.6867C4.40899 7.62454 4.33303 7.57566 4.2498 7.54286C4.16656 7.51006 4.07768 7.49397 3.98822 7.49552C3.89877 7.49706 3.8105 7.51622 3.72844 7.55188C3.64639 7.58754 3.57217 7.63902 3.51001 7.70336C3.44785 7.76771 3.39897 7.84367 3.36617 7.92691C3.33337 8.01014 3.31728 8.09903 3.31883 8.18848C3.32038 8.27793 3.33953 8.36621 3.37519 8.44826C3.41085 8.53031 3.46233 8.60454 3.52667 8.6667L6.08667 11.2267C6.14865 11.2892 6.22238 11.3388 6.30362 11.3726C6.38486 11.4065 6.472 11.4239 6.56001 11.4239C6.64802 11.4239 6.73515 11.4065 6.81639 11.3726C6.89763 11.3388 6.97137 11.2892 7.03334 11.2267L12.4733 5.7867C12.541 5.72427 12.595 5.6485 12.632 5.56417C12.6689 5.47983 12.688 5.38876 12.688 5.2967C12.688 5.20463 12.6689 5.11356 12.632 5.02923C12.595 4.94489 12.541 4.86912 12.4733 4.8067Z"
+													fill="white"></path>
+                          </svg>
+										</div> <span class="text-muted">Trustworthy</span>
+									</li>
+									<li class="d-flex mb-2 align-items-center">
+										<div
+											class="d-inline-flex me-3 align-items-center justify-content-center rounded-pill bg-primary border border-primary-dark">
+											<svg width="16" height="16" viewbox="0 0 16 16" fill="none"
+												xmlns="http://www.w3.org/2000/svg">
+                            <path
+													d="M12.4733 4.8067C12.4114 4.74421 12.3376 4.69461 12.2564 4.66077C12.1752 4.62692 12.088 4.6095 12 4.6095C11.912 4.6095 11.8249 4.62692 11.7436 4.66077C11.6624 4.69461 11.5886 4.74421 11.5267 4.8067L6.56001 9.78003L4.47334 7.6867C4.40899 7.62454 4.33303 7.57566 4.2498 7.54286C4.16656 7.51006 4.07768 7.49397 3.98822 7.49552C3.89877 7.49706 3.8105 7.51622 3.72844 7.55188C3.64639 7.58754 3.57217 7.63902 3.51001 7.70336C3.44785 7.76771 3.39897 7.84367 3.36617 7.92691C3.33337 8.01014 3.31728 8.09903 3.31883 8.18848C3.32038 8.27793 3.33953 8.36621 3.37519 8.44826C3.41085 8.53031 3.46233 8.60454 3.52667 8.6667L6.08667 11.2267C6.14865 11.2892 6.22238 11.3388 6.30362 11.3726C6.38486 11.4065 6.472 11.4239 6.56001 11.4239C6.64802 11.4239 6.73515 11.4065 6.81639 11.3726C6.89763 11.3388 6.97137 11.2892 7.03334 11.2267L12.4733 5.7867C12.541 5.72427 12.595 5.6485 12.632 5.56417C12.6689 5.47983 12.688 5.38876 12.688 5.2967C12.688 5.20463 12.6689 5.11356 12.632 5.02923C12.595 4.94489 12.541 4.86912 12.4733 4.8067Z"
+													fill="white"></path>
+                          </svg>
+										</div> <span class="text-muted">Genuine</span>
+									</li>
+									<li class="d-flex mb-2 align-items-center">
+										<div
+											class="d-inline-flex me-3 align-items-center justify-content-center rounded-pill bg-primary border border-primary-dark">
+											<svg width="16" height="16" viewbox="0 0 16 16" fill="none"
+												xmlns="http://www.w3.org/2000/svg">
+                            <path
+													d="M12.4733 4.8067C12.4114 4.74421 12.3376 4.69461 12.2564 4.66077C12.1752 4.62692 12.088 4.6095 12 4.6095C11.912 4.6095 11.8249 4.62692 11.7436 4.66077C11.6624 4.69461 11.5886 4.74421 11.5267 4.8067L6.56001 9.78003L4.47334 7.6867C4.40899 7.62454 4.33303 7.57566 4.2498 7.54286C4.16656 7.51006 4.07768 7.49397 3.98822 7.49552C3.89877 7.49706 3.8105 7.51622 3.72844 7.55188C3.64639 7.58754 3.57217 7.63902 3.51001 7.70336C3.44785 7.76771 3.39897 7.84367 3.36617 7.92691C3.33337 8.01014 3.31728 8.09903 3.31883 8.18848C3.32038 8.27793 3.33953 8.36621 3.37519 8.44826C3.41085 8.53031 3.46233 8.60454 3.52667 8.6667L6.08667 11.2267C6.14865 11.2892 6.22238 11.3388 6.30362 11.3726C6.38486 11.4065 6.472 11.4239 6.56001 11.4239C6.64802 11.4239 6.73515 11.4065 6.81639 11.3726C6.89763 11.3388 6.97137 11.2892 7.03334 11.2267L12.4733 5.7867C12.541 5.72427 12.595 5.6485 12.632 5.56417C12.6689 5.47983 12.688 5.38876 12.688 5.2967C12.688 5.20463 12.6689 5.11356 12.632 5.02923C12.595 4.94489 12.541 4.86912 12.4733 4.8067Z"
+													fill="white"></path>
+                          </svg>
+										</div> <span class="text-muted">Transparency</span>
+									</li>
+									<li class="d-flex mb-2 align-items-center">
+										<div
+											class="d-inline-flex me-3 align-items-center justify-content-center rounded-pill bg-primary border border-primary-dark">
+											<svg width="16" height="16" viewbox="0 0 16 16" fill="none"
+												xmlns="http://www.w3.org/2000/svg">
+                            <path
+													d="M12.4733 4.8067C12.4114 4.74421 12.3376 4.69461 12.2564 4.66077C12.1752 4.62692 12.088 4.6095 12 4.6095C11.912 4.6095 11.8249 4.62692 11.7436 4.66077C11.6624 4.69461 11.5886 4.74421 11.5267 4.8067L6.56001 9.78003L4.47334 7.6867C4.40899 7.62454 4.33303 7.57566 4.2498 7.54286C4.16656 7.51006 4.07768 7.49397 3.98822 7.49552C3.89877 7.49706 3.8105 7.51622 3.72844 7.55188C3.64639 7.58754 3.57217 7.63902 3.51001 7.70336C3.44785 7.76771 3.39897 7.84367 3.36617 7.92691C3.33337 8.01014 3.31728 8.09903 3.31883 8.18848C3.32038 8.27793 3.33953 8.36621 3.37519 8.44826C3.41085 8.53031 3.46233 8.60454 3.52667 8.6667L6.08667 11.2267C6.14865 11.2892 6.22238 11.3388 6.30362 11.3726C6.38486 11.4065 6.472 11.4239 6.56001 11.4239C6.64802 11.4239 6.73515 11.4065 6.81639 11.3726C6.89763 11.3388 6.97137 11.2892 7.03334 11.2267L12.4733 5.7867C12.541 5.72427 12.595 5.6485 12.632 5.56417C12.6689 5.47983 12.688 5.38876 12.688 5.2967C12.688 5.20463 12.6689 5.11356 12.632 5.02923C12.595 4.94489 12.541 4.86912 12.4733 4.8067Z"
+													fill="white"></path>
+                          </svg>
+										</div> <span class="text-muted">People-first</span>
+									</li>
+								</ul>
+								<img class="img-fluid d-block w-100 rounded-3 filter-blue-orange"
+									style="object-fit: cover;"
+									th:src="@{/images/anims/girl-meet-with-laptop.webp}" alt="">
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="text-center mb-16" id="team">
+					<h4 class="mb-6 text-center">Meet the team</h4>
+					<p class="text-light-dark mb-6">A dynamic group of individuals
+						united by passion and expertise</p>
+				</div>
+				<div class="row d-flex row d-flex justify-content-evenly">
+					<div class="col-12 col-lg-4 mb-8 mb-lg-0">
+						<div class="position-relative rounded-3 overflow-hidden">
+							<img class="position-relative img-fluid d-block w-100"
+								th:src="@{images/peoples/ceo.webp}" alt="">
+							<div
+								class="position-absolute bottom-0 start-0 px-8 py-4 bg-white"
+								style="border-top-right-radius: 24px;">
+								<span class="d-block display-3 fw-bold mb-2">Saravanan
+									Raja</span> <span class="small text-light-dark">Founder &amp;
+									CEO</span>
+							</div>
+						</div>
+					</div>
+					<div class="col-12 col-lg-4 mb-8 mb-lg-0">
+						<div class="position-relative rounded-3 overflow-hidden">
+							<img class="position-relative img-fluid d-block w-100"
+								th:src="@{images/peoples/cofounder.webp}" alt="">
+							<div
+								class="position-absolute bottom-0 start-0 px-8 py-4 bg-white"
+								style="border-top-right-radius: 24px;">
+								<span class="d-block display-3 fw-bold mb-2">Vairabharani
+									Sekar</span> <span class="small text-light-dark">Operational
+									Manager &amp; CO-F</span>
+							</div>
+						</div>
+					</div>
+
 				</div>
 			</div>
+
+			<div class="mw-lg mw-lg-6xl mx-auto mt-20">
+				<div class="row">
+					<div
+						class="col-12 col-lg-5 mb-12 mb-lg-0 justify-content-center text-center">
+						<div class="mw-sm">
+							<h3 class="font-heading mb-4" id="get-in-touch">Get in touch
+							</h3>
+							<p class="text-light-dark mb-0">Submit your info and we’ll
+								get back to you as soon as possible.</p>
+							<div class="my-2">
+								<svg width="49" height="3" viewbox="0 0 49 3" fill="none"
+									xmlns="http://www.w3.org/2000/svg">
+									<rect y="1" width="12" height="1" rx="0.5" fill="#FFC96D"></rect>
+									<circle cx="17.5" cy="1.5" r="1.5" fill="#FFA632"></circle>
+									<circle cx="24.5" cy="1.5" r="1.5" fill="#FFA632"></circle>
+									<circle cx="31.5" cy="1.5" r="1.5" fill="#FFA632"></circle>
+									<rect x="37" y="1" width="12" height="1" rx="0.5"
+										fill="#FFC96D"></rect></svg>
+							</div>
+
+							<p class="text-primary">We’d love to hear from you, Let’s
+								collaborate &#x1F603;</p>
+
+
+							<!--  this is hided for FAQ reason -->
+
+							<div
+								class="position-relative mw-xs p-8 border border-light rounded-3 d-none">
+								<div
+									class="position-absolute start-0 top-0 mt-8 border-2 border-start border-primary py-3"></div>
+								<p class="display-5 fw-bold mb-6">Technical Help desk</p>
+								<a
+									class="btn btn-sm d-inline-flex flex-wrap align-items-center btn-secondary border-secondary-dark"
+									href="#"> <span class="me-2">Visit FAQ Center</span> <svg
+										width="20" height="20" viewbox="0 0 20 20" fill="none"
+										xmlns="http://www.w3.org/2000/svg">
+                        <path
+											d="M5 10H15.4167M15.4167 10L10.4167 5M15.4167 10L10.4167 15"
+											stroke="currentColor" stroke-width="1.5"
+											stroke-linecap="round" stroke-linejoin="round"></path>
+                      </svg>
+								</a>
+							</div>
+						</div>
+					</div>
+					<div class="col-12 col-lg-7">
+						<div class="px-6 pb-12 position-relative">
+							<div class="position-absolute top-0 start-0 w-100 h-100 pt-16">
+								<div class="w-100 h-100 bg-secondary rounded-3"></div>
+							</div>
+							<div
+								class="position-relative p-8 bg-white border border-light rounded-3">
+								<form id="get-in-touch-form">
+									<div class="row">
+										<div class="col-12 col-lg-6 mb-4">
+											<label class="form-label" for="">First name *</label> <input
+												class="form-control" required type="text" id="first_name" placeholder="First name"
+												aria-label="">
+										</div>
+										<div class="col-12 col-lg-6 mb-4">
+											<label class="form-label" for="">Last name</label> <input
+												class="form-control" type="text" id="last_name" placeholder="Last name"
+												aria-label="">
+										</div>
+										<div class="col-12 mb-4">
+											<label class="form-label" for="">Email *</label> <input
+												class="form-control" type="text"
+												placeholder="vaira@email.com" required id="email" aria-label="">
+										</div>
+										<div class="col-12 mb-8">
+											<label class="form-label" for="">Message *</label>
+											<textarea class="form-control rounded-2"
+												style="resize: none;" rows="8" id="message"
+												placeholder="Enter your message" required></textarea>
+										</div>
+										<div class="col-12">
+											<button
+												class="btn mb-8 py-4 btn-primary border-primary-dark w-100"
+												type="submit">Submit</button>
+											<p class="small text-light-dark mb-0">
+												<span>We process your information in accordance with
+													our</span> <a class="p-0 fw-semibold" th:href="@{/privacy-policy}">Privacy Policy</a>
+											</p>
+										</div>
+									</div>
+								</form>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
 		</div>
 
 	</section>
+
+	<footer>
+		<div th:replace="~{layout/footer :: footer}"></div>
+	</footer>
+	<!-- jquery library JS -->
+	<script src="/assets/js/jquery.min.js"></script>
+	<!-- Popper.js -->
+	<script src="/webjars/popper.js/2.9.2/umd/popper.min.js"></script>
+	<script src="/webjars/bootstrap/5.2.1/js/bootstrap.min.js"></script>
+	<!-- main User application JS -->
+	<script src="js/contact/get-in-touch.js"></script>
+	<!-- main User application JS -->
+	<script src="js/main.js"></script>
 
 </body>
 </html>

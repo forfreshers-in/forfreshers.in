@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<meta charset="UTF-8">
+<link rel="stylesheet" href="css/bootstrap/bootstrap.min.css">
+<link rel="stylesheet" href="solstice-assets/fonts/fonts.css">
+<!--  mail css -->
+<link rel="stylesheet" href="css/main.css">
+<!-- awasome fonts -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+<title>Join our community - forfreshers.in</title>
+<meta name="description" content="Our community page is the heart of our platform, where job seekers, employers, and industry professionals come together to share, learn, and grow.">
+
+   <meta property="og:title" content="Join Our Community forfreshers.in">
+   <meta property="og:description" content="Our community page is the heart of our platform, where job seekers, employers, and industry professionals come together to share, learn, and grow.">
+   <meta property="og:image" th:content="@{/solstice-assets/images/logos/logoWithName.png}">
+   <meta property="og:url" th:content="@{/community}">
+   
+   <link rel="canonical" th:href="@{/community}">
+   
+   <meta name="author" content="Saravanan Raja">
+
+</head>
+<body>
+	<header>
+			<div th:insert="~{layout/navbar :: navbar}"></div>
+		</header>
+	<section class="pb-12 pb-lg-24">
+
+		<div class="container position-relative row text-center"  >  
+          
+          <div class="col-md-12 col-lg-6"> 
+              
+            <img  class="w-100" style="scale: 110%;" th:src="@{images\anims\communityMembers.webp}" alt="Community">
+          </div> 
+          <div class="mw-4xl mx-auto mb-24 text-center col-md-12 col-lg-6"> 
+            <span class="badge mb-6 d-inline-flex align-items-center border border-info lh-base shadow d-none">
+              <svg width="10" height="10" viewbox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="5" cy="5" r="5" fill="#FF7100"></circle></svg>
+              <span class="ms-2 fw-semibold ">1000+</span>
+              <span class="ms-1 text-light-dark">members</span>
+            </span>  
+            <h1 class="font-heading mb-6 mt-4">Join Our Community</h1> 
+            <p class="mw-xl mx-auto fs-5 text-light-dark mb-5">Our community page is the heart of our platform, where job seekers, employers, and industry professionals come together to share, learn, and grow. This space is designed to foster connections and support among those who are passionate about advancing their careers and contributing to a vibrant job market.</p>
+            <a class="btn btn-primary border-primary-dark d-none" href="#">Join Together Now</a>
+             <div class="d-flex justify-content-center m-0 p-2 flex-wrap">
+              <a class="btn btn-dark px-10 text-white whatsapp-bg whatsapp-color m-2 border-2"  target="_blank"><i class="fa-brands fa-whatsapp pe-1"></i>  Whatsapp</a>
+              <a class="btn btn-dark px-10 text-white telegram-bg telegram-color-hover  m-2 " target="_blank"><i class="fa-brands fa-telegram pe-1 "></i> Telegram</a>
+              <a class="btn btn-dark px-10 text-white m-2 linkedin-bg-hover linkedin-color-hover" target="_blank" href="https://www.linkedin.com/company/forfreshers-in"><i class="fa-brands fa-linkedin pe-1 "></i> Linked In</a>
+            </div>
+          </div>
+        </div>
+
+	</section>
+	
+	<footer>
+		<div th:replace="~{layout/footer :: footer}"></div>
+	</footer>
+	<!-- jquery library JS -->
+	<script src="/assets/js/jquery.min.js"></script>
+	 <!-- Popper.js -->
+    <script src="/webjars/popper.js/2.9.2/umd/popper.min.js"></script>
+	<script src="/webjars/bootstrap/5.2.1/js/bootstrap.min.js"></script>
+	<!-- main User application JS -->
+	<script src="js/main.js"></script>
+
+</body>
+</html>

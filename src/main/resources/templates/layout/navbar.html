@@ -6,15 +6,26 @@
 
 <meta charset="UTF-8">
 <title>forfreshers.in</title>
-
+<style type="text/css">
+.nav-link:hover {
+	color: orange;
+}
+</style>
 
 </head>
 <body>
 	<div th:fragment="navbar">
+		<!-- icons cdn -->
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/material-design-iconic-font/2.2.0/css/material-design-iconic-font.min.css">
+		<!-- awasome notification -->
+		<script th:src="@{/js/awesome-notifications.js}"></script>
+		<link rel="stylesheet" th:href="@{/css/awesome-notifications.css}" >
+		
 		<nav class="navbar mb-12 navbar-expand-lg navbar-light">
 			<div class="container">
 				<a class="navbar-brand" href="#"> <img class="img-fluid"
-					src="solstice-assets/images/logos/solstice-logo-dark.svg" alt="">
+					th:src="@{/solstice-assets/images/logos/logoWithName.png}"
+					alt="forfreshers" width="190px">
 				</a>
 				<button class="d-lg-none navbar-burger btn p-0 rounded-pill"
 					style="border: none;" type="button" data-bs-toggle="collapse"
@@ -28,33 +39,46 @@
 				</button>
 				<div class="collapse navbar-collapse position-relative" id="nav01">
 					<ul
-						class="navbar-nav position-absolute top-50 start-50 translate-middle d-xl-flex d-sm-none d-xs-none">
-						<li class="nav-item dropdown"><a
+						class="navbar-nav position-absolute top-50 start-50 translate-middle d-xl-flex d-sm-none d-xs-none d-none">
+						<li class="nav-item dropdown" data-po="popover"><a
 							class="nav-link dropdown-toggle" id="nav-1-1" href="#"
-							role="button" data-bs-toggle="dropdown" aria-expanded="false">Locations</a>
-							<ul class="dropdown-menu">
+							role="button" data-po="popover" th:class="${active_nav == 'locations' ? 'active nav-link' : 'nav-link' }" aria-expanded="false">Locations</a>
+							<ul class="dropdown-menu popover-content">
 								<li><a class="dropdown-item" href="#">Option 1</a></li>
 								<li><a class="dropdown-item" href="#">Option 2</a></li>
 								<li><a class="dropdown-item" href="#">Option 3</a></li>
 							</ul></li>
-						<li class="nav-item"><a class="nav-link" href="#">Features</a></li>
-						<li class="nav-item"><a class="nav-link" href="#">Community</a></li>
-						<li class="nav-item dropdown"><a
-							class="nav-link dropdown-toggle" id="nav-1-2" href="#"
-							role="button" data-bs-toggle="dropdown" aria-expanded="false">Resources</a>
-							<ul class="dropdown-menu">
-								<li><a class="dropdown-item" href="#">Option 1</a></li>
-								<li><a class="dropdown-item" href="#">Option 2</a></li>
-								<li><a class="dropdown-item" href="#">Option 3</a></li>
-							</ul></li>
-						<li class="nav-item"><a class="nav-link" href="/about">AboutUs</a></li>
+
+
+						<li class="nav-item"><a class="nav-link" th:class="${active_nav == 'features' ? 'active nav-link' : 'nav-link' }" th:href="@{/features}">Features</a></li>
+						<li class="nav-item"  ><a class="nav-link" th:class="${active_nav == 'community' ? 'active nav-link' : ' nav-link' }" th:href="@{/community}">Community</a></li>
+						<li class="nav-item"  ><a class="nav-link" th:class="${active_nav == 'contact' ? 'active nav-link' : ' nav-link' }" th:href="@{/contact}">Contact</a></li>
+						
+						<li class="nav-item"><a class="nav-link" th:class="${active_nav == 'about' ? 'nav-link active' : 'nav-link' }" th:href="@{/about}">AboutUs</a></li>
 					</ul>
 				</div>
 				<div class="d-none d-lg-block">
-					<a
+
+
+					<a sec:authorize="!isAuthenticated()"
 						class="btn me-4 btn-sm border-0 btn-outline-light lh-sm text-dark"
-						href="/login">Login</a><a class="btn btn-sm btn-secondary" href="#">Get
-						Started</a>
+						href="/login">Login</a>
+						
+					<div  sec:authorize="isAuthenticated()"
+						class="btn me-4 btn-sm border-0 btn-outline-light lh-sm text-dark"
+						href="/admin/">
+						<a href="/admin/dashboard" sec:authorize="hasRole('ROLE_ADMIN')">
+							Dashboard
+						</a>
+						
+						<a href="/user/dashboard" sec:authorize="hasRole('ROLE_USER')">
+							Dashboard
+						</a>
+						
+					</div>
+						
+						 <a class="btn btn-sm btn-secondary"
+						href="#">Join as Author</a>
 				</div>
 			</div>
 		</nav>
@@ -70,7 +94,8 @@
 				<div class="d-flex align-items-center">
 					<a class="me-auto h4 mb-0 text-decoration-none" href="#"> <img
 						class="img-fluid"
-						src="solstice-assets/images/logos/solstice-logo-dark.svg" alt="">
+						src="/solstice-assets/images/logos/logoWithName.png"
+						alt="forfreshers" width="190px">
 					</a> <a class="navbar-close" href="#"> <svg width="24" height="24"
 							viewbox="0 0 24 24" fill="none"
 							xmlns="http://www.w3.org/2000/svg">
@@ -86,7 +111,7 @@
 						<li class="nav-item mb-4"><a class="nav-link text-dark"
 							href="#">Features</a></li>
 						<li class="nav-item mb-4"><a class="nav-link text-dark"
-							href="#">Community</a></li> 
+							href="#">Community</a></li>
 						<li class="nav-item"><a class="nav-link text-dark" href="#">Resources</a></li>
 						<li class="nav-item"><a class="nav-link text-dark" href="#">About-us</a></li>
 					</ul>
@@ -94,8 +119,9 @@
 				<div>
 					<a
 						class="btn d-block mb-2 btn-sm border-0 btn-outline-light text-dark"
-						href="#">Login</a><a class="btn d-none d-block btn-sm btn-secondary-dark"
-						href="#">signUp</a>
+						href="#">Login</a>
+					<a
+						class="btn d-none d-block btn-sm btn-secondary-dark d-none" href="#">signUp</a>
 				</div>
 			</nav>
 		</div>

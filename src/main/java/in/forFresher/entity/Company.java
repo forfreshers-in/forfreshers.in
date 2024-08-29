@@ -3,14 +3,26 @@ package in.forFresher.entity;
 import java.sql.Timestamp;
 import java.util.Set;
 
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.ObjectIdGenerator;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
+
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
+import org.springframework.context.annotation.Lazy;
+
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
 
+@JsonIdentityInfo(
+		  generator = ObjectIdGenerators.PropertyGenerator.class, 
+		  property = "id") 
 @Entity
 public class Company {
 
@@ -18,23 +30,35 @@ public class Company {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
 	
-	@Column(nullable = false)
+	@Column(nullable = false, unique = true)
 	private String name;
 	
-	@Column(nullable = false)
+	@Column(length = 1500)
 	private String about; 
 
-	@Column(nullable = false, length = 600)
+	@Column( length = 600)
 	private String companyLogoLink;
 	
-	@OneToMany(mappedBy = "company", cascade = CascadeType.ALL)
+	@OneToMany(mappedBy = "company", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
 	private Set<Jobs> jobs;
 
+	@CreationTimestamp
 	@Column(nullable = false)
 	private Timestamp created_at;
 
+	@UpdateTimestamp
 	@Column(nullable = false)
 	private Timestamp updated_at;
+	
+	public Company() {
+		super();
+		//TODO Auto-generated constructor stub
+	}
+	
+	public Company(String name) {
+		super();
+		this.name = name;
+	}
 
 	public long getId() {
 		return id;

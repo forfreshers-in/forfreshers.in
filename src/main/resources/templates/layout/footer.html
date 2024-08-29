@@ -2,6 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
+
 </head>
 <body>
 	 <section class="pt-12 pt-lg-24 bg-dark" th:fragment="footer">
@@ -10,50 +11,59 @@
             <div class="row">
               <div class="col-lg-4 mb-16 mb-lg-0">
                 <a class="d-inline-block mb-6" href="#">
-                  <img src="solstice-assets/images/logos/solstice-logo-light.svg" alt="">
+                  <img th:src="@{/solstice-assets/images/logos/logoWithName-light.png}" alt="" width="190px">
                 </a>
-                <p class="text-light-dark small mb-0">© 2023 Solstice. All rights reserved.</p>
+                <p class="text-light-dark small mb-0">© 2024 forfreshers. All rights reserved.</p>
               </div>
               <div class="col-lg-8">
                 <div class="row">
                   <div class="col-6 col-md-3 mb-12">
                     <h6 class="mb-6 fw-medium text-white">Platform</h6>
                     <ul class="list-unstyled mb-0">
-                      <li class="mb-6"><a class="btn btn-link text-light-dark p-0" href="#">Features</a></li>
-                      <li class="mb-6"><a class="btn btn-link text-light-dark p-0" href="#">How it works</a></li>
-                      <li class="mb-6"><a class="btn btn-link text-light-dark p-0" href="#">Pricing</a></li>
-                      <li class="mb-6"><a class="btn btn-link text-light-dark p-0" href="#">Features</a></li>
-                      <li><a class="btn btn-link text-light-dark p-0" href="#">Events</a></li>
+                      <li class="mb-6"><a class="btn btn-link text-light-dark p-0" th:href="@{/features}"><i class="fa-brands fa-youtube pe-1"></i> Youtube</a></li>
+                      <li class="mb-6"><a class="btn btn-link text-light-dark p-0" th:href="@{/pricing}"><i class="fa-brands fa-instagram pe-1"></i>Instagram</a></li>
+                      <li class="mb-6"><a class="btn btn-link text-light-dark p-0" th:href="@{/pricing}"><i class="fa-brands fa-threads pe-1"></i>Thread</a></li>
+                      <li class="mb-6"><a class="btn btn-link text-light-dark p-0" th:href="@{/pricing}"><i class="fa-brands fa-facebook-f pe-1"></i>Facebook</a></li>
+                      <li class="mb-6"><a class="btn btn-link text-light-dark p-0" th:href="@{/pricing}"><i class="fa-brands fa-telegram pe-1" ></i>Telegram</a></li>
+                      <li class="mb-6"><a class="btn btn-link text-light-dark p-0" th:href="@{/pricing}"><i class="fa-brands fa-whatsapp pe-1"></i>whatsapp</a></li>
                     </ul>
                   </div>
                   <div class="col-6 col-md-3 mb-12">
                     <h6 class="mb-6 fw-medium text-white">Company</h6>
                     <ul class="list-unstyled mb-0">
-                      <li class="mb-6"><a class="btn btn-link text-light-dark p-0" href="#">About</a></li>
-                      <li class="mb-6"><a class="btn btn-link text-light-dark p-0" href="#">Our Mission</a></li>
+                      <li class="mb-6"><a class="btn btn-link text-light-dark p-0" th:href="@{/about}">About</a></li>
+                      <li class="mb-6"><a class="btn btn-link text-light-dark p-0" th:href="@{/about#get-in-touch}">Get in touch</a></li>
                       <li class="mb-6">
-                        <a class="btn btn-link text-light-dark p-0" href="#">Careers</a>
-                        <span class="badge ms-1 bg-primary text-white lh-base">HIRING</span>
+                        <a class="btn btn-link text-light-dark p-0" th:href="@{/about#team}">Teams</a>
+                        <span class="badge ms-1 bg-primary text-white lh-base d-none">HIRING</span>
                       </li>
-                      <li><a class="btn btn-link text-light-dark p-0" href="#">Contact</a></li>
+                      <li><a class="btn btn-link text-light-dark p-0" th:href="@{/contact}">Contact</a></li>
                     </ul>
                   </div>
-                  <div class="col-6 col-md-3">
+                  <div class="col-6 col-md-3 d-none">
                     <h6 class="mb-6 fw-medium text-white">Resources</h6>
                     <ul class="list-unstyled mb-0">
                       <li class="mb-6"><a class="btn btn-link text-light-dark p-0" href="#">Tutorials</a></li>
                       <li class="mb-6"><a class="btn btn-link text-light-dark p-0" href="#">Blog</a></li>
                       <li class="mb-6"><a class="btn btn-link text-light-dark p-0" href="#">Help Center</a></li>
                       <li class="mb-6"><a class="btn btn-link text-light-dark p-0" href="#">Features</a></li>
-                      <li><a class="btn btn-link text-light-dark p-0" href="#">Support</a></li>
+                      <li><a class="btn btn-link text-light-dark p-0" th:href="@{/contact}">Support</a></li>
                     </ul>
                   </div>
                   <div class="col-6 col-md-3">
                     <h6 class="mb-6 fw-medium text-white">Community</h6>
                     <ul class="list-unstyled mb-0">
-                      <li class="mb-6"><a class="btn btn-link text-light-dark p-0" href="#">Discord Server</a></li>
-                      <li class="mb-6"><a class="btn btn-link text-light-dark p-0" href="#">Slack Group</a></li>
-                      <li><a class="btn btn-link text-light-dark p-0" href="#">Zoom Room</a></li>
+                      <li class="mb-6"><a class="btn btn-link text-light-dark p-0" th:href="@{/community}">Whatsapp</a></li>
+                      <li class="mb-6"><a class="btn btn-link text-light-dark p-0"  th:href="@{/community}">Telegram</a></li>
+                      <li><a class="btn btn-link text-light-dark p-0"  th:href="@{/community}">Linked In</a></li>
+                    </ul>
+                  </div>
+                  <div class="col-6 col-md-3">
+                    <h6 class="mb-6 fw-medium text-white">Legal</h6>
+                    <ul class="list-unstyled mb-0">
+                      <li class="mb-6"><a class="btn btn-link text-light-dark p-0" th:href="@{/cookies-policy}">Cookie policy</a></li>
+                      <li class="mb-6"><a class="btn btn-link text-light-dark p-0"  th:href="@{/terms-and-condition}">Terms and Condition</a></li>
+                      <li><a class="btn btn-link text-light-dark p-0"  th:href="@{/privacy-policy}">Privacy policy</a></li>
                     </ul>
                   </div>
                 </div>

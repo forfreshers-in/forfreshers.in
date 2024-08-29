@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<meta charset="UTF-8">
+<link rel="stylesheet" href="css/bootstrap/bootstrap.min.css">
+<link rel="stylesheet" href="solstice-assets/fonts/fonts.css">
+<!--  mail css -->
+<link rel="stylesheet" href="css/main.css">
+<!-- awasome fonts -->
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+<title>privacy-policy - forfreshers</title>
+<meta name="description"
+	content="Your privacy is important to us. As we do not collect personal data, there is no need for data protection measures related to user information.">
+
+<meta property="og:title" content="privacy-policy - forfreshers">
+<meta property="og:description"
+	content="Your privacy is important to us. As we do not collect personal data, there is no need for data protection measures related to user information.">
+<meta property="og:image"
+	th:content="@{/solstice-assets/images/logos/logoWithName.png}">
+<meta property="og:url" th:content="@{/privacy-policy}">
+
+<link rel="canonical" th:href="@{/privacy-policy}">
+
+<meta name="author" content="Saravanan Raja">
+
+</head>
+<body>
+	<header>
+		<div th:insert="~{layout/navbar :: navbar}"></div>
+	</header>
+	<section class="pb-12 pb-lg-24 ">
+
+		<div class="container mt-5 d-flex flex-column align-items-center">
+			<h1 class="mb-4">Privacy Policy</h1>
+			<p>
+				<strong>Effective Date:</strong> August, 2024
+			</p>
+
+			<div class="accordion col-lg-8" id="privacyAccordion">
+				<div class="accordion-item">
+					<h2 class="accordion-header">
+						<button class="accordion-button collapsed" type="button"
+							data-bs-toggle="collapse" data-bs-target="#collapseOne"
+							aria-expanded="true" aria-controls="collapseOne">1.
+							Information We Collect</button>
+					</h2>
+					<div id="collapseOne" class="accordion-collapse collapse "
+						aria-labelledby="headingOne">
+						<div class="accordion-body text-indend">We do not collect
+							any personal information from visitors on this site. The
+							information provided is solely for displaying job posts and
+							redirecting users to the official career pages.</div>
+					</div>
+				</div>
+
+				<div class="accordion-item">
+					<h2 class="accordion-header">
+						<button class="accordion-button collapsed" type="button"
+							data-bs-toggle="collapse" data-bs-target="#collapseTwo"
+							aria-expanded="true" aria-controls="collapseTwo">2. How
+							We Use Your Information</button>
+					</h2>
+					<div id="collapseTwo" class="accordion-collapse collapse "
+						aria-labelledby="headingTwo">
+						<div class="accordion-body text-indend">Since we do not
+							collect any personal information, there is no use or sharing of
+							such data. All job postings are for informational purposes only
+							and do not involve user data.</div>
+					</div>
+				</div>
+
+				<div class="accordion-item">
+					<h2 class="accordion-header">
+						<button class="accordion-button collapsed" type="button"
+							data-bs-toggle="collapse" data-bs-target="#collapseThree"
+							aria-expanded="true" aria-controls="collapseThree">3.
+							Data Protection</button>
+					</h2>
+					<div id="collapseThree" class="accordion-collapse collapse "
+						aria-labelledby="headingThree">
+						<div class="accordion-body text-indend">Your privacy is
+							important to us. As we do not collect personal data, there is no
+							need for data protection measures related to user information.
+							However, we ensure that any job data displayed is accurate and
+							secure.</div>
+					</div>
+				</div>
+
+				<div class="accordion-item">
+					<h2 class="accordion-header">
+						<button class="accordion-button collapsed" type="button"
+							data-bs-toggle="collapse" data-bs-target="#collapseFour"
+							aria-expanded="true" aria-controls="collapseFour">4.
+							Third-Party Links</button>
+					</h2>
+					<div id="collapseFour" class="accordion-collapse collapse"
+						aria-labelledby="headingFour">
+						<div class="accordion-body text-indend">Our website may
+							contain links to third-party websites, such as official career
+							pages. We are not responsible for the privacy practices or
+							content of these external sites. Please refer to their privacy
+							policies for more information.</div>
+					</div>
+				</div>
+
+				<div class="accordion-item">
+					<h2 class="accordion-header">
+						<button class="accordion-button collapsed" type="button"
+							data-bs-toggle="collapse" data-bs-target="#collapseFive"
+							aria-expanded="true" aria-controls="collapseFive">5.
+							Changes to This Privacy Policy</button>
+					</h2>
+					<div id="collapseFive" class="accordion-collapse collapse "
+						aria-labelledby="headingFive">
+						<div class="accordion-body text-indend">We may update this
+							Privacy Policy from time to time. Any changes will be posted on
+							this page, and the effective date will be updated. Please check
+							this page periodically for any updates.</div>
+					</div>
+				</div>
+
+				<div class="accordion-item">
+					<h2 class="accordion-header">
+						<button class="accordion-button collapsed" type="button"
+							data-bs-toggle="collapse" data-bs-target="#collapseSix"
+							aria-expanded="true" aria-controls="collapseSix">6.
+							Contact Us</button>
+					</h2>
+					<div id="collapseSix" class="accordion-collapse collapse show"
+						aria-labelledby="headingSix">
+						<div class="accordion-body">
+							If you have any questions or concerns about this Privacy Policy,
+							please contact us: 
+							<p class="pt-4 mb-0 ">
+							<img
+								th:src="@{/solstice-assets/images/logos/logoWithName.png}"
+								alt="Contact Us" class="img-fluid my-2 w-25"> 
+							</p>
+								Email: <a
+								href="https://mail.google.com/mail/u/0/?view=cm&fs=1&to=support@forfreshers.in&tf=1">support@forfreshers.in</a>
+
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<footer>
+		<div th:replace="~{layout/footer :: footer}"></div>
+	</footer>
+	<!-- jquery library JS -->
+	<script src="/assets/js/jquery.min.js"></script>
+	<!-- Popper.js -->
+	<script src="/webjars/popper.js/2.9.2/umd/popper.min.js"></script>
+	<script src="/webjars/bootstrap/5.2.1/js/bootstrap.min.js"></script>
+
+	<!-- main User application JS -->
+	<script src="js/main.js"></script>
+
+</body>
+</html>

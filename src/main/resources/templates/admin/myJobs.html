@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+<meta name="description" content="" />
+<meta name="author" content="saravanan" />
+<title>Admin</title>
+<!-- loader-->
+<link href="/assets/css/pace.min.css" rel="stylesheet" />
+<script src="/assets/js/pace.min.js"></script>
+<!--favicon-->
+<!-- Vector CSS -->
+<link href="/assets/plugins/vectormap/jquery-jvectormap-2.0.2.css"
+	rel="stylesheet" />
+<!-- simplebar CSS-->
+<link href="/assets/plugins/simplebar/css/simplebar.css"
+	rel="stylesheet" />
+<!-- Bootstrap core CSS-->
+<link href="/assets/css/bootstrap.min.css" rel="stylesheet" />
+<!-- animate CSS-->
+<link href="/assets/css/animate.css" rel="stylesheet" type="text/css" />
+<!-- Icons CSS-->
+<link href="/assets/css/icons.css" rel="stylesheet" type="text/css" />
+<!-- Sidebar CSS-->
+<link href="/assets/css/sidebar-menu.css" rel="stylesheet" />
+<!--  mulltiselect magicsuggest -->
+<link href="/assets/plugins/multiselectMagicSuggest/magicsuggest.css"
+	rel="stylesheet" />
+
+<!-- quill text editor stylesheet -->
+<link
+	href="https://cdn.jsdelivr.net/npm/quill@2.0.0/dist/quill.snow.css"
+	rel="stylesheet" />
+
+<!--  mulltiselect magicsuggest -->
+<link href="/assets/plugins/year-picker/yearpicker.css" rel="stylesheet" />
+
+<!-- Custom Style-->
+<link href="/assets/css/app-style.css" rel="stylesheet" />
+
+<!--  Data table Style -->
+<link href="https://cdn.datatables.net/v/dt/dt-2.0.7/datatables.min.css"
+	rel="stylesheet">
+
+
+</head>
+
+<body class="bg-theme bg-theme1">
+
+	<!-- Start wrapper-->
+	<div id="wrapper">
+
+		<!--Start sidebar-wrapper-->
+		<div th:insert="~{admin/component/sidebar :: sidebar}"></div>
+		<!--End sidebar-wrapper-->
+
+		<!--Start topbar header-->
+		<header class="topbar-nav">
+			<div th:replace="~{admin/component/navbar :: navbar}"></div>
+		</header>
+		<!--End topbar header-->
+
+		<div class="clearfix"></div>
+
+		<div class="content-wrapper">
+			<div class="container-fluid">
+
+				<!--Start Dashboard Content-->
+
+				<h5>My Jobs</h5>
+				<div class="row">
+					<div class="card">
+						<div class="card-body">
+							<span class="d-flex align-items-center">
+								<h5 class="card-title p-0 m-0">Posted Jobs</h5>
+								<button id="refresh-myjobs-table-btn" class="btn text-white">
+									<i class="zmdi zmdi-refresh zmdi-hc-2x "></i>
+								</button>
+							</span>
+							<!-- job list options element model-->
+							<div id="jobListMenu" class="context-menu dropdown-menu">
+								<a class="dropdown-item context-menu-item" id="getJobLink">Get Link</a> 
+								<a class="dropdown-item context-menu-item" id="publish">Publish</a>
+								<a class="dropdown-item context-menu-item" id="upPublish">Unpublish </a>
+								<a class="dropdown-item context-menu-item" id="edit">Edit </a>
+								<a class="dropdown-item context-menu-item" id="preview">Preview</a>
+								<a class="dropdown-item context-menu-item" id="share">Share</a>
+							</div>
+							<div class="table-responsive">
+								<table class="table table-hover " id="jobs-list-table">
+									<thead>
+										<tr>
+											<th scope="col">id</th>
+											<th scope="col">status</th>
+											<th scope="col">title</th>
+											<th scope="col">company</th>
+											<th scope="col">created</th>
+											<th scope="col">updated</th>
+											<th scope="col">life</th>
+										</tr>
+									</thead>
+
+								</table>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!--End Row-->
+
+
+
+				<!--End Dashboard Content-->
+
+				<!--start overlay-->
+				<div class="overlay toggle-menu"></div>
+				<!--end overlay-->
+
+			</div>
+			<!-- End container-fluid-->
+
+		</div>
+		
+		<div id="shareMenu" class="share-menu" style="display:none;">
+            <a href="https://www.facebook.com/sharer/sharer.php?u=https://yourwebsite.com" class="social-link" id="facebookLink"><i class="zmdi zmdi-facebook"></i></a>
+            <a href="https://twitter.com/intent/tweet?url=https://yourwebsite.com&text=Check%20this%20out!" class="social-link" id="twitterLink"><i class="zmdi zmdi-twitter"></i></a>
+            <a href="https://www.linkedin.com/sharing/share-offsite/?url=https://yourwebsite.com" class="social-link" id="linkedinLink"><i class="zmdi zmdi-linkedin"></i></a>
+            <a href="https://api.whatsapp.com/send?text=Check%20this%20out!%20https://yourwebsite.com" class="social-link" id="whatsappLink"><i class="zmdi zmdi-whatsapp"></i></a>
+            <a href="https://www.instagram.com/?url=https://yourwebsite.com" class="social-link" id="instagramLink"><i class="zmdi zmdi-instagram"></i></a>
+        </div>
+        
+		<!--End content-wrapper-->
+		<!--Start Back To Top Button-->
+		<a href="javaScript:void();" class="back-to-top"><i
+			class="fa fa-angle-double-up"></i> </a>
+		<!--End Back To Top Button-->
+
+		<!--Start footer-->
+		<footer class="footer">
+			<div class="container">
+				<div class="text-center">Copyright © 2024 forfreshers Admin</div>
+			</div>
+		</footer>
+		<!--End footer-->
+
+		<!--start color switcher-->
+		<div th:insert="~{admin/component/colorSwitcher :: colorSwitcher}"></div>
+		<!--end color switcher-->
+
+	</div>
+	<!--End wrapper-->
+
+	<!-- Bootstrap core JavaScript-->
+	<script src="/assets/js/jquery.min.js"></script>
+	<script src="/assets/js/popper.min.js"></script>
+	<script src="/assets/js/bootstrap.min.js"></script>
+
+	<!-- simplebar js -->
+	<script src="/assets/plugins/simplebar/js/simplebar.js"></script>
+	<!-- sidebar-menu js -->
+	<script src="/assets/js/sidebar-menu.js"></script>
+	<!-- loader scripts -->
+	<script src="/assets/js/jquery.loading-indicator.js"></script>
+	<!-- Custom scripts -->
+	<script src="/assets/js/app-script.js"></script>
+	<!-- Chart js -->
+
+	<script src="/assets/plugins/Chart.js/Chart.min.js"></script>
+
+	<!-- datalist for inputs autofulling -->
+	<script type="text/javascript"
+		src="/assets/plugins/autocomplete/bootstrap-autocomplete.js"></script>
+
+	<!-- multi select magicSuggest -->
+	<script type="text/javascript"
+		src="/assets/plugins/multiselectMagicSuggest/magicsuggest.js"></script>
+
+	<!-- Include the Quill library -->
+	<script src="https://cdn.jsdelivr.net/npm/quill@2.0.0/dist/quill.js"></script>
+
+	<!--  year picker text input -->
+	<script type="text/javascript"
+		src="/assets/plugins/year-picker/yearpicker.js"></script>
+
+	<!-- Data table js -->
+	<script
+		src="https://cdn.datatables.net/v/dt/dt-2.0.7/datatables.min.js"></script>
+
+	<!-- Index js -->
+	<script src="/assets/js/myJobs.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,9 @@
+a.nav-link:hover {
+    color: red;
+}
+.text-indend{
+	text-indent: 2em;
+}
+.filter-blue-orange{
+	-webkit-filter: hue-rotate(176deg) saturate(1) contrast(2);
+}

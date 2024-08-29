@@ -2998,7 +2998,7 @@ table.grid td {
 [class*="icheck-material"] {
   min-height: 22px;
   margin-top: 6px;
-  margin-bottom: 6px 
+  margin-bottom: 6px ;
   padding-left: 0px; }
   [class*="icheck-material"] > label {
     padding-left: 29px !important;
@@ -3646,11 +3646,59 @@ table.grid td {
     padding: 0px 10px 0 5px;
   }
 
-
 }
 
 
 
+.share-container {
+    position: relative;
+    display: inline-block;
+}
+
+.share-btn {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.share-menu {
+    display: flex;
+    position: fixed;
+    bottom: 0px;
+    transform: translateX(-50%);
+    left:50%;
+    background-color: #bfbfbff2;
+    border: 1px solid #ddd;
+    border-radius: 10px 10px 0px 0px;
+    padding-inline:5px;
+    z-index: 100;
+    box-shadow: 0px 0px 16px 0px rgba(0, 0, 0, 1.1);
+}
+
+.share-menu a {
+    padding: 10px 20px;
+    display: block;
+    text-decoration: none;
+    color: #333;
+}
+
+.share-menu a:hover {
+    background-color: #f1f1f1;
+}
+
+/* Show the share menu on hover for desktop */
+@media (min-width: 768px) {
+    .share-container:hover .share-menu {
+        display: block;
+    }
+}
+
+
+tr, a{
+	cursor: pointer;
+}
 
 
 

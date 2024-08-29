@@ -47,6 +47,10 @@ public class Users {
     @JoinColumn(name = "created_by_id")
 	private Users addedBy;
 	
+	@Column(nullable = false, updatable = false)
+    @CreationTimestamp
+    private Timestamp createdAt;
+	
 	// Getters and Setters
 
 	public Long getId() {
@@ -120,5 +124,16 @@ public class Users {
 	public void setAddedBy(Users addedBy) {
 		this.addedBy = addedBy;
 	}
+
+	public Timestamp getCreatedAt() {
+		return createdAt;
+	}
+
+	public void setCreatedAt(Timestamp createdAt) {
+		this.createdAt = createdAt;
+	}
+	
+	
 	
 }
+ 

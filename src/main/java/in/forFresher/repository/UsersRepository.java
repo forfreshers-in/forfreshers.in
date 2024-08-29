@@ -9,4 +9,5 @@ import in.forFresher.entity.Users;
 public interface UsersRepository extends JpaRepository<Users, Long>{
 
 		Users findByUsername(String username);
+		Users findByEmail(String email);
 }

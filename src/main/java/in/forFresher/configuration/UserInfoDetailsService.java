@@ -18,11 +18,16 @@ public class UserInfoDetailsService implements UserDetailsService{
 	private UsersRepository userRepo;
 	
 	@Override
-	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+	public UserDetails loadUserByUsername(String usernameOrEmail) throws UsernameNotFoundException {
 		// TODO Auto-generated method stub
-		Users user = userRepo.findByUsername(username);
+		Users user = userRepo.findByUsername(usernameOrEmail);
+		
+		if( user == null ) {
+			user = userRepo.findByEmail(usernameOrEmail);
+		}
+		
 		if(user == null) {
-		    throw new UsernameNotFoundException("Your user name is not found");
+		    throw new UsernameNotFoundException("user is not found");
 		}
 		return new UserInfoDetails(user);
 	} 

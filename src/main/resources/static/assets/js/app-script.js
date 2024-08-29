@@ -65,7 +65,11 @@ $(function () {
   $('[data-toggle="tooltip"]').tooltip()
 })
 
-
+	// setting default theme
+	let themeCookie = getCookie("ADM_BG")
+	if(themeCookie != null){
+		 $('body').attr('class', themeCookie);
+	}
 	 // theme setting
 	 $(".switcher-icon").on("click", function(e) {
         e.preventDefault();
@@ -90,65 +94,101 @@ $(function () {
 
     function theme1() {
       $('body').attr('class', 'bg-theme bg-theme1');
+      setLifetimeCookie("ADM_BG","bg-theme bg-theme1")
     }
 
     function theme2() {
       $('body').attr('class', 'bg-theme bg-theme2');
+      setLifetimeCookie("ADM_BG","bg-theme bg-theme2")
     }
 
     function theme3() {
       $('body').attr('class', 'bg-theme bg-theme3');
+      setLifetimeCookie("ADM_BG","bg-theme bg-theme3")
     }
 
     function theme4() {
       $('body').attr('class', 'bg-theme bg-theme4');
+      setLifetimeCookie("ADM_BG","bg-theme bg-theme4")
     }
 	
 	function theme5() {
       $('body').attr('class', 'bg-theme bg-theme5');
+      setLifetimeCookie("ADM_BG","bg-theme bg-theme5")
     }
 	
 	function theme6() {
       $('body').attr('class', 'bg-theme bg-theme6');
+      setLifetimeCookie("ADM_BG","bg-theme bg-theme6")
     }
 
     function theme7() {
       $('body').attr('class', 'bg-theme bg-theme7');
+      setLifetimeCookie("ADM_BG","bg-theme bg-theme7")
     }
 
     function theme8() {
       $('body').attr('class', 'bg-theme bg-theme8');
+      setLifetimeCookie("ADM_BG","bg-theme bg-theme8")
     }
 
     function theme9() {
       $('body').attr('class', 'bg-theme bg-theme9');
+      setLifetimeCookie("ADM_BG","bg-theme bg-theme9")
     }
 
     function theme10() {
       $('body').attr('class', 'bg-theme bg-theme10');
+      setLifetimeCookie("ADM_BG","bg-theme bg-theme10")
     }
 
     function theme11() {
       $('body').attr('class', 'bg-theme bg-theme11');
+      setLifetimeCookie("ADM_BG","bg-theme bg-theme11")
     }
 
     function theme12() {
       $('body').attr('class', 'bg-theme bg-theme12');
+      setLifetimeCookie("ADM_BG","bg-theme bg-theme12")
     }
 	
 	function theme13() {
       $('body').attr('class', 'bg-theme bg-theme13');
+      setLifetimeCookie("ADM_BG","bg-theme bg-theme13")
     }
 	
 	function theme14() {
       $('body').attr('class', 'bg-theme bg-theme14');
+      setLifetimeCookie("ADM_BG","bg-theme bg-theme14")
     }
 	
 	function theme15() {
       $('body').attr('class', 'bg-theme bg-theme15');
+      setLifetimeCookie("ADM_BG","bg-theme bg-theme15")
     }
-
-
-
-
 });
+
+// setting long term cookie
+function setLifetimeCookie(name, value) {
+    var date = new Date();
+    date.setFullYear(date.getFullYear() + 10); // Set the cookie to expire in 10 years
+    var expires = "expires=" + date.toUTCString();
+    document.cookie = name + "=" + value + ";" + expires + ";path=/";
+}
+
+// delete cookie
+function deleteCookie(name) {
+    document.cookie = name + "=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+}
+
+// get Cookie
+function getCookie(name) {
+    var nameEQ = name + "=";
+    var ca = document.cookie.split(';');
+    for (var i = 0; i < ca.length; i++) {
+        var c = ca[i];
+        while (c.charAt(0) === ' ') c = c.substring(1, c.length);
+        if (c.indexOf(nameEQ) === 0) return c.substring(nameEQ.length, c.length);
+    }
+    return null;
+}

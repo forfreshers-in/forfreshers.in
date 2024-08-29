@@ -10,7 +10,7 @@
 		<div id="sidebar-wrapper" data-simplebar=""
 			data-simplebar-auto-hide="true">
 			<div class="brand-logo">
-				<a href="#"> <img src="/assets/images/logo-icon.png"
+				<a href="#"> <img src="/assets/images/logoColor.png"
 					class="logo-icon" alt="logo icon">
 					<h5 class="logo-text">ForFreshers Admin</h5>
 				</a>
@@ -28,12 +28,14 @@
 							Job</span>
 				</a></li>
 
-				<li th:class="${active_nav eq 'mydraft' ? 'active' : '' }" class="disabled"><a
-					href="#" class=""> <i class="zmdi zmdi-folder"></i> <span>My
-							Drafts</span>
+				<li th:class="${active_nav eq 'mydraft' ? 'active' : '' }"
+					class="disabled"><a href="/admin/drafts" class=""> <i
+						class="zmdi zmdi-folder"></i> <span> Drafts</span>
 				</a></li>
 
-				<li><a href="tables.html"> <i class="zmdi zmdi-grid"></i> <span>Tables</span>
+				<li th:class="${active_nav eq 'myjobs' ? 'active' : '' }"><a
+					href="/admin/myjobs"> <i class="zmdi zmdi-grid"></i> <span>My
+							Jobs</span>
 				</a></li>
 
 				<li><a href="calendar.html"> <i
