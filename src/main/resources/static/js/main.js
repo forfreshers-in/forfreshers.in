@@ -78,12 +78,12 @@ $(document).ready(function() {
 	// Function to check user consent
 	function checkConsent() {
 		let cookie = `      
-	  <div class="position-fixed bottom-0 start-0 col-12" id="cookie-banner" style="z-index: 50; display:none;">
+	 <div class="position-fixed bottom-0 start-0 col-12" id="cookie-banner" style="z-index: 50;">
         <div class="d-flex flex-wrap align-items-start col-12">
-          <div class="container py-2 pt-lg-2" col-12="">
-            <div class="py-6 py-md-6 px-12 px-sm-20 px-md-12 px-lg-6 w-100 bg-dark border rounded-3 rounded-pill text-white">
+          <div class="container py-md-0 py-2 pt-lg-2" col-12="">
+            <div class="py-2 py-md-6 px-0 px-sm-2 px-md-12 px-lg-6 w-100 bg-dark border rounded-3 rounded-pill text-white d-flex justify-content-center">
               <div class="row align-items-center col-12">
-                <div class="col-12 col-md-7 col-lg-9 mb-10 mb-md-0">
+                <div class="col-12 col-md-7 col-lg-9 mb-4 mb-md-0">
                   <div class=" d-flex align-items-center">
                     <span>
                       <svg width="34" height="34" viewBox="0 0 34 34" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -97,11 +97,11 @@ $(document).ready(function() {
                   </div>
                 </div>
                 <div class="col-12 col-md-4 col-lg-3">
-                  <div class="row justify-content-end g-4 d-flex flex-nowrap">
-                    <div class="col-6 col-md-auto">
-                      <div class="d-inline-block bg-white rounded-pill"><a class="btn btn-sm py-4 btn-outline-light fs-6 text-dark w-100"  id="decline-cookies"  href="javascript:void(0)">Decline</a></div>
+                  <div class="d-flex justify-content-evenly g-4 d-flex flex-nowrap">
+                    <div class="col-6 col-md-auto text-center">
+                      <div class="d-inline-block bg-white rounded-pill"><a class="btn btn-sm py-4 btn-outline-light fs-6 text-dark w-100" id="decline-cookies" href="javascript:void(0)">Decline</a></div>
                     </div>
-                    <div class="col-6 col-md-auto"><a class="btn btn-sm py-4 px-8 btn-primary fs-6 w-100"  id="accept-cookies"  href="javascript:void(0)">Allow</a></div>
+                    <div class="col-6 col-md-auto text-center"><a class="btn btn-sm py-4 px-8 btn-primary fs-6 w-100" id="accept-cookies" href="javascript:void(0)">Allow</a></div>
                   </div>
                 </div>
               </div>
@@ -117,8 +117,6 @@ $(document).ready(function() {
 			e.innerHTML = cookie;
 			$("body").append(cookie);
 			$("#cookie-banner").delay(5000).slideDown(1000);
-			//body.append(e);
-		//	$('#cookie-banner').style.display = 'block';
 		}
 	}
 

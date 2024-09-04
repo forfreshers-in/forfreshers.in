@@ -23,7 +23,7 @@
 		
 		<nav class="navbar mb-12 navbar-expand-lg navbar-light">
 			<div class="container">
-				<a class="navbar-brand" href="#"> <img class="img-fluid"
+				<a class="navbar-brand" th:href="@{/}"> <img class="img-fluid"
 					th:src="@{/solstice-assets/images/logos/logoWithName.png}"
 					alt="forfreshers" width="190px">
 				</a>
@@ -42,11 +42,11 @@
 						class="navbar-nav position-absolute top-50 start-50 translate-middle d-xl-flex d-sm-none d-xs-none d-none">
 						<li class="nav-item dropdown" data-po="popover"><a
 							class="nav-link dropdown-toggle" id="nav-1-1" href="#"
-							role="button" data-po="popover" th:class="${active_nav == 'locations' ? 'active nav-link' : 'nav-link' }" aria-expanded="false">Locations</a>
+							role="button" data-po="popover" th:class="${active_nav == 'locations' ? 'active nav-link' : 'nav-link' }" aria-expanded="false">Jobs</a>
 							<ul class="dropdown-menu popover-content">
 								<li><a class="dropdown-item" href="#">Option 1</a></li>
 								<li><a class="dropdown-item" href="#">Option 2</a></li>
-								<li><a class="dropdown-item" href="#">Option 3</a></li>
+								<li><a class="dropdown-item" href="#">Option 4</a></li>
 							</ul></li>
 
 
@@ -65,17 +65,16 @@
 						href="/login">Login</a>
 						
 					<div  sec:authorize="isAuthenticated()"
-						class="btn me-4 btn-sm border-0 btn-outline-light lh-sm text-dark"
-						href="/admin/">
-						<a href="/admin/dashboard" sec:authorize="hasRole('ROLE_ADMIN')">
+						class="lh-sm btn p-0 m-0 btn-outline-white me-6" >
+						<a href="/admin/dashboard" sec:authorize="hasRole('ROLE_ADMIN')" class="btn  btn-sm border-0 btn-outline-light lh-sm text-dark">
 							Dashboard
 						</a>
 						
-						<a href="/user/dashboard" sec:authorize="hasRole('ROLE_USER')">
+						<a href="/user/dashboard" sec:authorize="hasRole('ROLE_USER')" class="btn  btn-sm border-0 btn-outline-light lh-sm text-dark">
 							Dashboard
 						</a>
 						
-					</div>
+					</div  >
 						
 						 <a class="btn btn-sm btn-secondary"
 						href="#">Join as Author</a>
@@ -107,7 +106,7 @@
 				<div class="py-12">
 					<ul class="nav flex-column">
 						<li class="nav-item mb-4"><a class="nav-link text-dark"
-							href="#">Locations</a></li>
+							href="#">Jobs</a></li>
 						<li class="nav-item mb-4"><a class="nav-link text-dark"
 							href="#">Features</a></li>
 						<li class="nav-item mb-4"><a class="nav-link text-dark"
@@ -117,11 +116,22 @@
 					</ul>
 				</div>
 				<div>
-					<a
-						class="btn d-block mb-2 btn-sm border-0 btn-outline-light text-dark"
-						href="#">Login</a>
-					<a
-						class="btn d-none d-block btn-sm btn-secondary-dark d-none" href="#">signUp</a>
+					<a sec:authorize="!isAuthenticated()" 
+						class="btn me-4 btn-sm border-0 btn-primary-light lh-sm px-10"
+						href="/login">Login</a> 
+						
+					<div  sec:authorize="isAuthenticated()"
+						class=""
+						href="/admin/">
+						<a href="/admin/dashboard" sec:authorize="hasRole('ROLE_ADMIN')" class="btn me-4 btn-sm border-0 btn-outline-light lh-sm text-dark">
+							Dashboard 
+						</a>
+						
+						<a href="/user/dashboard" sec:authorize="hasRole('ROLE_USER')" class="btn me-4 btn-sm border-0 btn-outline-light lh-sm text-dark">
+							Dashboard
+						</a>
+						
+					</div>
 				</div>
 			</nav>
 		</div>
