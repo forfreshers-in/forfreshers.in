@@ -16,6 +16,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import in.forFresher.component.CurrentUserProvider;
+import in.forFresher.dto.JobDto;
 import in.forFresher.dto.JobsDtoMyJobsList;
 import in.forFresher.entity.Company;
 import in.forFresher.entity.Jobs;
@@ -52,6 +53,9 @@ public class JobsService {
 
 	@Autowired
 	private final CurrentUserProvider currentUserProvider;
+	
+	@Autowired
+	private QualificationService qualificationService;
 
 	public static final Pattern VALID_ORG_EMAIL_ADDRESS_REGEX = Pattern.compile(
 			"^(?!.*@gmail\\.com$)([a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,})$", Pattern.CASE_INSENSITIVE);
@@ -246,10 +250,11 @@ public class JobsService {
 
 		newJob.setLocations(locationService.getOrCreateLocations((List<String>) jobData.get("locations")));
 
+		newJob.setQualification(qualificationService.getOrCreateQualification((List<String>) jobData.get("qualifications")));
+
 		newJob.setTypes(typeService.getTypes((List<String>) jobData.get("types")));
 
-		newJob.setQualification(
-				((List<String>) jobData.get("qualifications")).toString().replace("[", "").replace("]", ""));
+//		newJob.setQualification( ((List<String>) jobData.get("qualifications")).toString().replace("[", "").replace("]", ""));
 
 		newJob.setCategory(categoryService.getCategory((String) jobData.get("category")));
 
@@ -411,7 +416,6 @@ public class JobsService {
 	public Jobs getJobByTitleAndId(String jobTitle, String jobId) {
 		Long jobIdLong = Long.valueOf(jobId);
 		Jobs job = jobsRepository.findByTitleAndId(jobTitle, jobIdLong);
-
 		return job;
 
 	}
@@ -420,9 +424,9 @@ public class JobsService {
 	 * load more jobs for load more button
 	 */
 
-	public List<Jobs> findJobs(LocalDateTime initialLoadTime, int offset, int limit, String location, String company, String type) {
+	public List<JobDto> findJobs(LocalDateTime initialLoadTime, int offset, int limit, String location, String company, String type) {
         Pageable pageable = PageRequest.of(offset / limit, limit);
-        Page<Jobs> jobPage = jobsRepository.findJobs(initialLoadTime, location, company, type, pageable);
-        return jobPage.getContent();
+        List<JobDto> jobPage = jobsRepository.findJobs(initialLoadTime, location, company, type, pageable);
+        return jobPage;
     }
 }

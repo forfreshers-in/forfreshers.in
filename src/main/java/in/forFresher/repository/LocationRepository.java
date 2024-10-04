@@ -9,4 +9,5 @@ import in.forFresher.entity.Location;
 public interface LocationRepository extends JpaRepository<Location, Long>{
 	
 	Location findByCity(String city);
+
 }

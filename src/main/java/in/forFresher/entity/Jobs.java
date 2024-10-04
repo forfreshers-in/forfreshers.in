@@ -23,7 +23,6 @@ import jakarta.persistence.ManyToMany;
 import jakarta.persistence.ManyToOne;
 
 @Entity
-
 @JsonIdentityInfo(
 		  generator = ObjectIdGenerators.PropertyGenerator.class, 
 		  property = "id")
@@ -40,7 +39,7 @@ public class Jobs {
 	@JoinColumn(name = "company")
 	private Company company;
 
-	@ManyToMany(cascade = CascadeType.ALL)
+	@ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
 	@JoinTable(name = "job_location", joinColumns = @JoinColumn(name = "job_id", referencedColumnName = "id"), inverseJoinColumns = @JoinColumn(name = "location_id", referencedColumnName = "id"))
 	private Set<Location> locations;
 
@@ -78,8 +77,10 @@ public class Jobs {
 	@Column(columnDefinition = "TEXT")
 	private String description;
 	
-	@Column(name = "qualification")
-	private String qualification;
+
+	@ManyToMany(cascade = CascadeType.ALL,  fetch = FetchType.LAZY)
+	@JoinTable(name="job_qualification", joinColumns = @JoinColumn( name = "job_id", referencedColumnName = "id" ), inverseJoinColumns = @JoinColumn(name ="qualification_id", referencedColumnName = "id"))
+	private Set<Qualification> qualification;
 	
 	@Column(name = "min_salary")
 	private Float  minSalary;
@@ -220,11 +221,11 @@ public class Jobs {
 		this.description = description;
 	}
 
-	public String getQualification() {
+	public Set<Qualification> getQualification() {
 		return qualification;
 	}
 
-	public void setQualification(String qualification) {
+	public void setQualification(Set<Qualification> qualification) {
 		this.qualification = qualification;
 	}
 
@@ -319,8 +320,4 @@ public class Jobs {
 				+ ", updatedAt=" + updatedAt + ", types=" + types + ", author=" + author + ", published=" + published
 				+ "]";
 	}
-
-	
-	
-	
 }

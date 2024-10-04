@@ -7,8 +7,7 @@
 <meta charset="UTF-8">
 <link rel="stylesheet" href="css/bootstrap/bootstrap.min.css">
 <link rel="stylesheet" href="solstice-assets/fonts/fonts.css">
-<!--  main css -->
-<link rel="stylesheet" href="css/main.css">
+
 <!-- awasome fonts -->
 <link rel="stylesheet"
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
@@ -29,13 +28,15 @@
 <meta name="author" content="Saravanan Raja">
 
 </head>
-<body>
+<body >
+
 	<header>
 		<div th:insert="~{layout/navbar :: navbar}"></div>
 	</header>
 	<section class="pb-12 pb-lg-24">
 
-		<div class="container position-relative overflow-hidden">
+
+		<div class="container position-relative overflow-hidden" >
 			<div class="position-absolute top-0 h-100 start-0 ms-md-14">
 				<svg width="500" height="500" viewbox="0 0 500 500" fill="none"
 					xmlns="http://www.w3.org/2000/svg">
@@ -64,26 +65,26 @@
             </svg>
 			</div>
 			<div
-				class="position-relative pt-24 pb-12 pb-md-32 mw-3xl mx-auto text-center">
-				<h1 class="font-heading">About Us</h1>
-				<p>Our platform is dedicated to providing only genuine job
+				class="position-relative pt-24 pb-12 pb-md-32 mw-3xl mx-auto text-center ">
+					<div class=" h1 font-heading  scroll-reveal-200" >About Us</div>
+				<p class=" scroll-reveal-400 ">Our platform is dedicated to providing only genuine job
 					openings, ensuring a safe and reliable space for job seekers. We
 					carefully curate job posts to eliminate any fake listings or
 					consultancy-driven ads. Your trust in finding real opportunities is
 					our top priority</p>
 				<div class="">
-					<a href="#team" class="px-4"> <i class="fa-solid fa-people-group"></i> Our Team</a> <a href="#get-in-touch"
-						class="px-4"><i class="fa-solid fa-handshake-simple"></i> Get in touch</a>
+					<a href="#team" class="px-4  scroll-reveal-600"> <i class="fa-solid fa-people-group"></i> Our Team</a> <a href="#get-in-touch"
+						class="px-4"><i class="fa-solid fa-handshake-simple scroll-reveal-200"></i> Get in touch</a>
 				</div>
 			</div>
 			<div
 				class="position-relative mw-sm mw-md-xl mx-auto mw-lg-none mb-20 mb-md-32 border py-10 bg-white rounded-3">
-				<div class="row">
+				<div class="row  ">
 					<div
 						class="col-12 col-md-6 col-lg-4 mb-4 mb-md-0 position-relative">
 						<div
 							class="d-none d-md-block position-absolute top-0 h-100 end-0 border-end"></div>
-						<div class="text-center py-4 py-lg-0">
+						<div class="text-center py-4 py-lg-0  scroll-reveal-200">
 							<span class="d-block mb-2 text-light-dark">Founded</span> <span
 								class="h2 fw-semibold">2024</span>
 						</div>
@@ -92,13 +93,13 @@
 						class="col-12 col-md-6 col-lg-4 mb-4 mb-md-0 position-relative">
 						<div
 							class="d-none d-md-block position-absolute top-0 h-100 end-0 border-end"></div>
-						<div class="text-center py-4 py-lg-0">
+						<div class="text-center py-4 py-lg-0  scroll-reveal-400">
 							<span class="d-block mb-2 text-light-dark">Team members</span> <span
 								class="h2 fw-semibold">10+</span>
 						</div>
 					</div>
 					<div class="col-12 col-md-6 col-lg-4">
-						<div class="text-center py-4 py-lg-0">
+						<div class="text-center py-4 py-lg-0  scroll-reveal-600">
 							<span class="d-block mb-2 text-light-dark">Nationality</span> <span
 								class="h2 fw-semibold">India</span>
 						</div>
@@ -110,8 +111,8 @@
 				<div class="mb-20 mb-md-32">
 					<div class="row">
 						<div class="col-12 col-md-6 mb-8 mb-md-0 text-center">
-							<h3 class="font-heading mb-20">We are with values</h3>
-							<div class= "h-50 hidden-overlay">
+							<h3 class="font-heading mb-20 scroll-reveal-400">We are with values</h3>
+							<div class= "h-50 hidden-overlay  scroll-reveal-400">
 								<img
 								class="img-fluid rounded-3 filter-blue-orange"
 								th:src="@{/images/anims/value-obstack-people.webp}" alt="">
@@ -119,7 +120,7 @@
 						</div>
 						<div class="col-12 col-md-6">
 							<div class="d-flex flex-column mw-md h-100">
-								<p class="text-light-dark mb-6 text-indend">At our core, we
+								<p class="text-light-dark mb-6 text-indend  scroll-reveal-400">At our core, we
 									believe that job seekers deserve a trustworthy platform where
 									they can explore career opportunities without the fear of
 									encountering misleading or fraudulent postings. We understand
@@ -127,7 +128,7 @@
 									fake job ads, and we are committed to changing that experience
 									for you.</p>
 								<ul class="list-unstyled mb-16">
-									<li class="d-flex mb-2 align-items-center">
+									<li class="d-flex mb-2 align-items-center  scroll-reveal-400 ">
 										<div
 											class="d-inline-flex me-3 align-items-center justify-content-center rounded-pill bg-primary border border-primary-dark">
 											<svg width="16" height="16" viewbox="0 0 16 16" fill="none"
@@ -138,7 +139,7 @@
                           </svg>
 										</div> <span class="text-muted">Trustworthy</span>
 									</li>
-									<li class="d-flex mb-2 align-items-center">
+									<li class="d-flex mb-2 align-items-center  scroll-reveal-400">
 										<div
 											class="d-inline-flex me-3 align-items-center justify-content-center rounded-pill bg-primary border border-primary-dark">
 											<svg width="16" height="16" viewbox="0 0 16 16" fill="none"
@@ -149,7 +150,7 @@
                           </svg>
 										</div> <span class="text-muted">Genuine</span>
 									</li>
-									<li class="d-flex mb-2 align-items-center">
+									<li class="d-flex mb-2 align-items-center  scroll-reveal-400">
 										<div
 											class="d-inline-flex me-3 align-items-center justify-content-center rounded-pill bg-primary border border-primary-dark">
 											<svg width="16" height="16" viewbox="0 0 16 16" fill="none"
@@ -160,7 +161,7 @@
                           </svg>
 										</div> <span class="text-muted">Transparency</span>
 									</li>
-									<li class="d-flex mb-2 align-items-center">
+									<li class="d-flex mb-2 align-items-center  scroll-reveal-400">
 										<div
 											class="d-inline-flex me-3 align-items-center justify-content-center rounded-pill bg-primary border border-primary-dark">
 											<svg width="16" height="16" viewbox="0 0 16 16" fill="none"
@@ -172,7 +173,7 @@
 										</div> <span class="text-muted">People-first</span>
 									</li>
 								</ul>
-								<img class="img-fluid d-block w-100 rounded-3 filter-blue-orange"
+								<img class="img-fluid d-block w-100 rounded-3 filter-blue-orange  scroll-reveal-400"
 									style="object-fit: cover;"
 									th:src="@{/images/anims/girl-meet-with-laptop.webp}" alt="">
 							</div>
@@ -181,11 +182,11 @@
 				</div>
 
 				<div class="text-center mb-16" id="team">
-					<h4 class="mb-6 text-center">Meet the team</h4>
-					<p class="text-light-dark mb-6">A dynamic group of individuals
+					<h4 class="mb-6 text-center  scroll-reveal-400">Meet the team</h4>
+					<p class="text-light-dark mb-6  scroll-reveal-400">A dynamic group of individuals
 						united by passion and expertise</p>
 				</div>
-				<div class="row d-flex row d-flex justify-content-evenly">
+				<div class="row d-flex row d-flex justify-content-evenly  scroll-reveal-400">
 					<div class="col-12 col-lg-4 mb-8 mb-lg-0">
 						<div class="position-relative rounded-3 overflow-hidden">
 							<img class="position-relative img-fluid d-block w-100"
@@ -312,9 +313,6 @@
 
 	</section>
 
-	<footer>
-		<div th:replace="~{layout/footer :: footer}"></div>
-	</footer>
 	<!-- jquery library JS -->
 	<script src="/assets/js/jquery.min.js"></script>
 	<!-- Popper.js -->
@@ -322,8 +320,10 @@
 	<script src="/webjars/bootstrap/5.2.1/js/bootstrap.min.js"></script>
 	<!-- main User application JS -->
 	<script src="js/contact/get-in-touch.js"></script>
-	<!-- main User application JS -->
-	<script src="js/main.js"></script>
+
+	<footer >
+		<div th:replace="~{layout/footer :: footer}"></div>
+	</footer>
 
 </body>
 </html>

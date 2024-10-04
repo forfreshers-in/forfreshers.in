@@ -5,7 +5,7 @@
 				<h4 class="font-heading mb-4">Login</h4>
 				<p class="mb-8">
 					<span class="text-light-dark">New to ForFreshers?</span> <a
-						class="d-inline-block text-dark border-0 fw-bold" href="#">Create
+						class="d-inline-block text-dark border-0 fw-bold" th:href="@{/contact}">Create
 						new account</a>
 				</p>
 				<div th:if="${param.error}">Invalid username and password.</div>
@@ -32,11 +32,19 @@
 						</button>
 					</div>
 					<div class="mt-3 mb-8 text-end">
-						<a class="d-inline-block small fw-semibold p-0" href="#">Forgot
-							Password?</a>
+						<a class="d-inline-block small fw-semibold p-0" href="javascript:void(0)">Forgot
+							Password?
+							<span class="badge bg-warning text-dark rounded-pill">feature currently inactive
+</span>
+							</a>
 					</div>
 					<button
 						class="btn mb-4 py-3 lh-lg w-100 btn-primary border-primary-dark">Login</button>
+						<p class="text-end small">
+						<a  class="text-end" th:href="@{/}">Back to home</a>
+						</p>
+						
+						
 					<a class="btn w-100 d-flex flex-wrap btn-outline-light text-dark d-none"
 						href="#"> <svg width="21" height="20" viewbox="0 0 21 20"
 							fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -53,6 +61,8 @@
 								d="M18.6713 8.36791H18V8.33333H10.5V11.6667H15.2096C14.8809 12.5902 14.2889 13.3972 13.5067 13.9879L13.5079 13.9871L16.0871 16.1696C15.9046 16.3354 18.8333 14.1667 18.8333 9.99999C18.8333 9.44124 18.7758 8.89583 18.6713 8.36791Z"
 								fill="#1976D2"></path>
                   </svg> <span class="ms-2 fw-bold">Login with Google</span>
+                  <span class="badge rounded-pill bg-warning">soon</span>
+                  
 					</a>
 				</form>
 			</div>

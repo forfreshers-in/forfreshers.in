@@ -22,13 +22,14 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import in.forFresher.services.JobsService;
+import in.forFresher.dto.JobDto;
+import in.forFresher.dto.JobsDtoJobCard;
 import in.forFresher.entity.Jobs;
 
 @RestController
 @RequestMapping("/api/jobs")
 public class JobsApiController {
 
-	@Autowired
 	private final JobsService jobsService;
 
 	private PasswordEncoder password;
@@ -87,14 +88,12 @@ public class JobsApiController {
 		try {
 			return ResponseEntity.ok(jobsService.findAllJobsByCurrentUser());
 		} catch (Exception e) {
-			System.out.println("saravanan");
 			e.printStackTrace();
 			return ResponseEntity.internalServerError().body(e);
 		}
 	}
 
 	public ResponseEntity<Jobs> saveDraft(@RequestBody Jobs job) {
-		System.out.println(job);
 
 		return null;
 	}
@@ -102,7 +101,9 @@ public class JobsApiController {
 	/*
 	 * Accepts the initial load time, offset, limit, and optional filters like location, company, and type.
 	 */
-	public ResponseEntity<List<Jobs>> findJobs(
+	@GetMapping(value = "/getjobs", produces = "application/json")
+	@ResponseBody
+	public ResponseEntity<List<JobDto>> findJobs(
 			 @RequestParam("initialLoadTime") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME) LocalDateTime initialLoadTime,
 			 @RequestParam("offset") int offset,
 			 @RequestParam("limit") int limit,
@@ -111,8 +112,9 @@ public class JobsApiController {
 		        @RequestParam(value = "type", required = false) String type
 			){
 		
-		List<Jobs> jobs = jobsService.findJobs(initialLoadTime,offset, limit,  location, company, type);
+		List<JobDto> jobs = jobsService.findJobs(initialLoadTime,offset, limit,  location, company, type);
         return ResponseEntity.ok(jobs);
 		
 	}
+	
 }

@@ -74,14 +74,21 @@ function getCookie(name) {
 	}
 	return null;
 }
+
+// FOR COOKIES
 $(document).ready(function() {
 	// Function to check user consent
 	function checkConsent() {
 		let cookie = `      
-	 <div class="position-fixed bottom-0 start-0 col-12" id="cookie-banner" style="z-index: 50;">
+	<div class="position-fixed bottom-0 start-0 col-12" id="cookie-banner" style="z-index: 50;">
         <div class="d-flex flex-wrap align-items-start col-12">
           <div class="container py-md-0 py-2 pt-lg-2" col-12="">
-            <div class="py-2 py-md-6 px-0 px-sm-2 px-md-12 px-lg-6 w-100 bg-dark border rounded-3 rounded-pill text-white d-flex justify-content-center">
+            <div class="py-2 py-md-6 px-0 px-sm-2 px-md-12 px-lg-6 w-100 bg-dark border rounded-3 rounded-pill text-white d-flex justify-content-center position-relative">
+<button class="btn btn-secondary p-1 px-4 position-absolute border-1 border-light" id="cookie-banner-hide-btn" style="
+    right: 50%;
+    top: -20px;
+    transform: translateX(50%);
+"> <i class="fa fa-close"></i> </button>
               <div class="row align-items-center col-12">
                 <div class="col-12 col-md-7 col-lg-9 mb-4 mb-md-0">
                   <div class=" d-flex align-items-center">
@@ -108,11 +115,11 @@ $(document).ready(function() {
             </div>
           </div>
         </div>
-      </div> `
+      </div>
+	 `
 			;
 
 		if (getCookie('cookies_concern') !== 'true' && sessionStorage.getItem("cookies_concern") == null) {
-			console.log("hello")
 			var e = $("div");
 			e.innerHTML = cookie;
 			$("body").append(cookie);
@@ -124,27 +131,138 @@ $(document).ready(function() {
 	checkConsent();
 
 	// When the user clicks "Yes"
-	$('#accept-cookies').on("click",function() {
+	$('#accept-cookies').on("click", function() {
 		setCookie('cookies_concern', 'true', 365); // Store acceptance for 1 year
 		$('#cookie-banner').delay(200).slideUp(200);
-		
+
 	});
 
 	// When the user clicks "No"
 	$('#decline-cookies').on("click", function() {
 		$('#cookie-banner').delay(200).slideUp(200);
-		sessionStorage.setItem("cookies_concern",false);
-		// Optionally, handle decline case (e.g., disable tracking, etc.
+		sessionStorage.setItem("cookies_concern", false);
+	});
 
+	$('#cookie-banner-hide-btn').on("click", function() {
+		$('#cookie-banner').delay(200).slideUp(200);
 	});
 
 	$('#cookies-policy-btn').on("click", function() {
-		let location = window.location.origin+"/cookies-policy";
+		let location = window.location.origin + "/cookies-policy";
 		window.open(location);
 	});
-	
-	
+
+
 
 
 })
 
+// For test scrolling pages
+$(document).ready(function() {
+	ScrollReveal().reveal('.scroll-reveal-200', { delay: 200, reset: true });
+	ScrollReveal().reveal('.scroll-reveal-400', { delay: 400, reset: true });
+	ScrollReveal().reveal('.scroll-reveal-600', { delay: 600, reset: true });
+	ScrollReveal().reveal('.scroll-reveal-800', { delay: 800, reset: true });
+	ScrollReveal().reveal('.scroll-reveal-1000', { delay: 1000, reset: true });
+})
+
+// for lenis scrol lib
+const lenis = new Lenis({
+	// Valeur entre 0 et 1
+	// Valeur par défaut : 0,1
+	// Plus la valeur est faible, plus le scroll sera fluide
+	lerp: 0.05,
+	// Valeur par défaut : 1
+	// Plus la valeur est haute, plus le défilement sera rapide 
+	wheelMultiplier: 1,
+})
+
+lenis.on('scroll', (e) => {
+
+})
+
+function raf(time) {
+	lenis.raf(time)
+	requestAnimationFrame(raf)
+}
+
+requestAnimationFrame(raf)
+
+// function for find is mobile or not
+function isMobile() {
+  const regex = /Mobi|Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i;
+  return regex.test(navigator.userAgent);
+}
+
+// mouse folloer
+$(document).ready(function() {
+    // Initialize Mouse Follower with skewing
+    let cursor =null;
+    if(!isMobile()){
+		
+	    cursor = new MouseFollower({
+	        container: "body",
+	        skewing: 2, // Adjust skewing effect
+	        skewingText: 2,
+	        speed: 0.55,
+	        class: "mf-cursor mf-cursor-cus"
+	    });
+	}
+
+    // Select all buttons with the .sticky-button class
+    const buttons = document.querySelectorAll('.sticky-button');
+    
+    buttons.forEach((button) => {
+        button.addEventListener('mouseenter', () => {
+            document.body.classList.add('has-cursor-hover'); // Add class to scale cursor
+            gsap.to(button, { 
+                scale: 1.1, 
+                ease: "expo.out", 
+                duration: 0.6 
+            });
+        });
+
+        button.addEventListener('mouseleave', () => {
+            document.body.classList.remove('has-cursor-hover'); // Remove class to reset cursor size
+            gsap.to(button, { 
+                scale: 1, 
+                ease: "expo.out", 
+                duration: 0.6 
+            });
+        });
+
+        button.addEventListener('mousemove', (e) => {
+            const rect = button.getBoundingClientRect();
+            const x = e.clientX - rect.left - rect.width / 2;
+            const y = e.clientY - rect.top - rect.height / 2;
+
+            gsap.to(button, {
+                x: x * 0.3, // Adjust for stronger pull effect
+                y: y * 0.3,
+                rotation: x * 0.05, // Adds a slight rotation for skewing effect
+                ease: "power3.out"
+            });
+        });
+
+        button.addEventListener('mouseout', () => {
+            gsap.to(button, { 
+                x: 0, 
+                y: 0, 
+                rotation: 0, 
+                ease: "power3.out"
+            });
+        });
+    });
+
+    // Apply the sticky effect to all elements with the .sticky-element class
+    const stickyElements = document.querySelectorAll('.sticky-element');
+    
+    stickyElements.forEach((targetElement) => {
+        targetElement.addEventListener('mouseenter', () => {
+            cursor.setStick(targetElement); // Stick the cursor to the element
+        });
+        targetElement.addEventListener('mouseleave', () => {
+            cursor.removeStick(); // Remove the sticky effect when leaving the element
+        });
+    });
+});

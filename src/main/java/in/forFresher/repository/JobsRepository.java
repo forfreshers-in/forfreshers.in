@@ -12,9 +12,11 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 import in.forFresher.entity.Jobs;
+import in.forFresher.repository.JobsRepositoryCustom;
 
 @Repository
-public interface JobsRepository extends JpaRepository<Jobs, Long> {
+public interface JobsRepository extends JpaRepository<Jobs, Long>, JobsRepositoryCustom  {
+	
 	
 	boolean existsByTitle(String title);
 	
@@ -26,12 +28,6 @@ public interface JobsRepository extends JpaRepository<Jobs, Long> {
     /*
      * using for load more button load more jobs
      */
-    @Query("SELECT DISTINCT j FROM Jobs j " )
-     Page<Jobs> findJobs(@Param("initialLoadTime") LocalDateTime initialLoadTime,
-                        @Param("location") String location,
-                        @Param("company") String company,
-                        @Param("type") String type,
-                        Pageable pageable);
 
 
 }

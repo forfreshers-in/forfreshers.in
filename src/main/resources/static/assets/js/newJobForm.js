@@ -72,6 +72,16 @@ $(document).ready(function() {
 		allowFreeEntries: true,
 		required: true
 	})
+	$.ajax({
+		url: location.origin + "/api/qualifications",
+		method: "GET",
+		success: function(response) {
+			selected_qualifications.setData(response);
+		},
+		error: function(xhr, status, error) {
+			new AWN().alert("Qualification not fetched refresh page or Try later");
+		}
+	})
 
 	description_input_quill = new Quill('#description-input', {
 		modules: {

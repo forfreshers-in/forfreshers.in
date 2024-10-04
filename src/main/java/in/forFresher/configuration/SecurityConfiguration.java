@@ -28,7 +28,7 @@ public class SecurityConfiguration {
                 // Secure the /admin/** paths
                 .requestMatchers("/admin/**").hasRole("ADMIN")
                 // Permit access to static resources
-                .requestMatchers("/css/**", "/js/**", "/images/**", "/webjars/**").permitAll()
+                .requestMatchers("/favicon.ico","ads.txt", "/css/**", "/js/**", "/images/**", "/webjars/**").permitAll()
                 // Permit all other requests
                 .anyRequest().permitAll())
             .httpBasic(Customizer.withDefaults())

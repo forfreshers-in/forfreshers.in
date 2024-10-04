@@ -1,17 +1,16 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
+
+<!--  tag for google ads and analytics -->
+<th:block th:replace="~{layout/headTags :: #body}"></th:block>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <meta charset="UTF-8">
 <link rel="stylesheet" href="css/bootstrap/bootstrap.min.css">
 <link rel="stylesheet" href="solstice-assets/fonts/fonts.css">
-<!--  mail css -->
-<link rel="stylesheet" href="css/main.css">
-<!-- awasome fonts -->
-<link rel="stylesheet"
-	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
 
 <title>privacy-policy - forfreshers</title>
 <meta name="description"
@@ -151,17 +150,14 @@
 		</div>
 	</section>
 
-	<footer>
-		<div th:replace="~{layout/footer :: footer}"></div>
-	</footer>
 	<!-- jquery library JS -->
 	<script src="/assets/js/jquery.min.js"></script>
 	<!-- Popper.js -->
 	<script src="/webjars/popper.js/2.9.2/umd/popper.min.js"></script>
 	<script src="/webjars/bootstrap/5.2.1/js/bootstrap.min.js"></script>
-
-	<!-- main User application JS -->
-	<script src="js/main.js"></script>
+	<footer>
+		<div th:replace="~{layout/footer :: footer}"></div>
+	</footer>
 
 </body>
 </html>

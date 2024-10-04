@@ -13,6 +13,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import in.forFresher.entity.Jobs;
 import in.forFresher.entity.Position;
+import in.forFresher.entity.Qualification;
 import in.forFresher.services.JobsService;
 
 @Controller
@@ -27,21 +28,27 @@ public class JobsController {
 	public ModelAndView showJobDetails(@PathVariable String jobTitle, @PathVariable String jobId) {
 		Jobs job = null;
 		try {
-		job = jobsService.getJobByTitleAndId(jobTitle, jobId);
+			job = jobsService.getJobByTitleAndId(jobTitle, jobId);
 		}catch(Exception e) {
-			
+
 		}
 		mv.addObject("jobDetails", job);
 		mv.setViewName("jobs/jobPage");
 		// for meta details
 		List<String> positions = new ArrayList<>();
 		for (Position position : job.getPositions()) {
-			positions.add( position.getName() );
+	 		positions.add( position.getName() );
 		}
+		
+		List<String> qualifications = new ArrayList<>();
+		for (Qualification qualification : job.getQualification()) {
+			qualifications.add( qualification.getName() );
+		}
+		
 		mv.addObject("positionsInArray", positions.toArray());
+		mv.addObject("qualificationsInArray", qualifications.toArray());
 		mv.addObject("authorName", job.getAuthor().getName());
 		 //debug
-		
 		
 		return mv;
 	}
