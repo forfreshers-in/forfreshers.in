@@ -8,8 +8,8 @@
 						class="d-inline-block text-dark border-0 fw-bold" th:href="@{/contact}">Create
 						new account</a>
 				</p>
-				<div th:if="${param.error}">Invalid username and password.</div>
-				<div th:if="${param.logout}">You have been logged out.</div>
+				<div th:if="${param.error}" class="text-danger fw-bolder">Invalid username and password.</div>
+				<div th:if="${param.logout}" class="text-success fw-bolder">You have been logged out.</div>
 				<form th:action="@{/login}" method="post">
 					<label class="form-label" for="">Username/Email</label> 
 					<input class="form-control mb-4" type="text" name="username" required

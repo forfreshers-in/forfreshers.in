@@ -15,14 +15,6 @@ function loadJobs() {
 			limit: limit
 		},
 		success: function(data) {
-			//remove if data is not exist now
-			if (data.length == 0) {
-				$('#load-more-job-btn').text("no more jobs");
-				setTimeout(() => {
-					$('#load-more-job-btn').slideUp();
-				}, 2000);
-				return;
-			}
 
 			// Append job data to the container
 			data.forEach(function(job, index) {
@@ -52,6 +44,15 @@ function loadJobs() {
 
 			// Increment the offset for the next request
 			offset += limit;
+			
+			//remove if data is not exist now
+			if (data.length < limit) {
+				$('#load-more-job-btn').text("no more jobs");
+				setTimeout(() => {
+					$('#load-more-job-btn').slideUp();
+				}, 2000);
+				return;
+			}
 		},
 		error: function(error) {
 			console.log("Error loading jobs:", error);

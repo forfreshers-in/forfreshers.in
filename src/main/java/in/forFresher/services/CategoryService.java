@@ -17,8 +17,8 @@ public class CategoryService {
 	@Autowired
 	private CategoryRepository categoryRepository;
 	
-	public List<String> getAllTypes(){
-		return categoryRepository.findAll().stream().map(Category::getName).toList();
+	public List<String> getAllName(){
+		return categoryRepository.getAllNames();
 	}
 	
 	public Set<Category> getCategories(List<String> categoryNames) throws InvalidDataException {

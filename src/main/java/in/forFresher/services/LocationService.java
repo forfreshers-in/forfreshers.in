@@ -18,7 +18,7 @@ public class LocationService {
 	private LocationRepository locationRepository;
 	
 	public List<String> getAllCities(){
-		return locationRepository.findAll().stream().map(Location::getCity).toList();
+		return locationRepository.getAllCities();
 	}
 	
 	public Set<Location> getOrCreateLocations(List<String> cityNames) {

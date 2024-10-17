@@ -4,6 +4,13 @@ import java.sql.Timestamp;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
+import java.util.stream.Collectors;
+
+import in.forFresher.entity.Jobs;
+import in.forFresher.entity.Location;
+import in.forFresher.entity.Position;
+import in.forFresher.entity.Qualification;
+import in.forFresher.entity.Type;
 
 public class JobDto {
 
@@ -20,7 +27,7 @@ public class JobDto {
 	private Integer toBatch;
 	private Set<String> positions; // You might want to expose position names instead of Position entities
 	private String description;
-	private String qualification;
+	private Set<String> qualifications;
 	private Float minSalary;
 	private Float maxSalary;
 	private Float experienceFrom;
@@ -29,7 +36,8 @@ public class JobDto {
 	private Timestamp createdAt;
 	private Timestamp updatedAt;
 	private Set<String> types; // Expose job types by name or ID
-	private String author; // You might expose author name or ID
+	private String author; // You might expose author name
+	private Long author_id; // You might expose author  ID
 	private Byte published;
 
 	// Getters and Setters
@@ -55,6 +63,43 @@ public class JobDto {
 		this.author = author;
 		this.published = published;
 	}
+
+	// Constructor for converting Jobs to JobDto
+    public JobDto(Jobs job) {
+        this.id = job.getId();
+        this.title = job.getTitle();
+        this.company = job.getCompany() != null ? job.getCompany().getName() : null; // Assuming Company has getName()
+        this.locations = job.getLocations() != null ? job.getLocations().stream()
+                .map(Location::getCity) // Assuming Location has getName()
+                .collect(Collectors.toSet()) : null;
+        this.category = job.getCategory() != null ? job.getCategory().getName() : null; // Assuming Category has getName()
+        this.dateAndTime = job.getDateAndTime();
+        this.lastDate = job.getLastDate();
+        this.applyLink = job.getApplyLink();
+        this.hrMail = job.getHrMail();
+        this.fromBatch = job.getFromBatch();
+        this.toBatch = job.getToBatch();
+        this.positions = job.getPositions() != null ? job.getPositions().stream()
+                .map(Position::getName) // Assuming Position has getName()
+                .collect(Collectors.toSet()) : null;
+        this.description = job.getDescription();
+        this.qualifications = job.getQualification() != null ? job.getQualification().stream()
+                .map(Qualification::getName) // Assuming Qualification has getName()
+                .collect(Collectors.toSet()) : null;
+        this.minSalary = job.getMinSalary();
+        this.maxSalary = job.getMaxSalary();
+        this.experienceFrom = job.getExperience_from();
+        this.experienceTo = job.getExperience_to();
+        this.expiredAt = job.getExpiredAt();
+        this.createdAt = job.getCreatedAt();
+        this.updatedAt = job.getUpdatedAt();
+        this.types = job.getTypes() != null ? job.getTypes().stream()
+                .map(Type::getName) // Assuming Type has getName()
+                .collect(Collectors.toSet()) : null;
+        this.author = job.getAuthor() != null ? job.getAuthor().getName() : null; // Assuming Users has getName()
+        this.author_id = job.getAuthor() != null? job.getAuthor().getId() : null;
+        this.published = job.getPublished();
+    }
 
 	public Long getId() {
 		return id;
@@ -161,12 +206,12 @@ public class JobDto {
 		this.description = description;
 	}
 
-	public String getQualification() {
-		return qualification;
+	public Set<String> getQualification() {
+		return qualifications;
 	}
 
-	public void setQualification(String qualification) {
-		this.qualification = qualification;
+	public void setQualification(Set<String> qualification) {
+		this.qualifications = qualification;
 	}
 
 	public Float getMinSalary() {
@@ -240,6 +285,31 @@ public class JobDto {
 
 	public void setAuthor(String author) {
 		this.author = author;
+	}
+	
+
+	public Set<String> getQualifications() {
+		return qualifications;
+	}
+
+	public void setQualifications(Set<String> qualifications) {
+		this.qualifications = qualifications;
+	}
+
+	public Long getAuthor_id() {
+		return author_id;
+	}
+
+	public void setAuthor_id(Long author_id) {
+		this.author_id = author_id;
+	}
+
+	public void setLocations(Set<String> locations) {
+		this.locations = locations;
+	}
+
+	public void setTypes(Set<String> types) {
+		this.types = types;
 	}
 
 	public Byte getPublished() {

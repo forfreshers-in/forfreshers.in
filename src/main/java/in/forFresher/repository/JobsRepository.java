@@ -3,6 +3,7 @@ package in.forFresher.repository;
 
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -17,6 +18,7 @@ import in.forFresher.repository.JobsRepositoryCustom;
 @Repository
 public interface JobsRepository extends JpaRepository<Jobs, Long>, JobsRepositoryCustom  {
 	
+	Optional<Jobs> findById(Long id);
 	
 	boolean existsByTitle(String title);
 	

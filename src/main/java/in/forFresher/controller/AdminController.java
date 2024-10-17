@@ -9,6 +9,7 @@ import org.springframework.web.servlet.ModelAndView;
 import in.forFresher.repository.CategoryRepository;
 import in.forFresher.repository.CompanyRepository;
 import in.forFresher.repository.JobsRepository;
+import jakarta.servlet.http.HttpServletResponse;
 
 @Controller
 @RequestMapping("/admin")
@@ -45,7 +46,9 @@ public class AdminController {
 	} 
 	
 	@GetMapping("/myjobs")
-	public ModelAndView showMyJobs() {
+	public ModelAndView showMyJobs(HttpServletResponse response) {
+		response.addHeader("X-Frame-Options", "SAMEORIGIN");
+		response.addHeader("en peru", "meenakumari");
 		mv = new ModelAndView();
 		mv.addObject("active_nav", "myjobs");
 		mv.setViewName("admin/myJobs");

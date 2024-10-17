@@ -8,14 +8,16 @@
 <title>Login | forfreshers.in</title>
 <meta name="description" content="hello">
 
- <meta property="og:title" content="Login to forfreshers.in">
-    <meta property="og:description" content="Secure login for existing users to manage their account on forfreshers.in">
-    <meta property="og:url" content="https://forfreshers.in.com/login">
-    <meta property="og:type" content="website">
+<meta property="og:title" content="Login to forfreshers.in">
+<meta property="og:description"
+	content="Secure login for existing users to manage their account on forfreshers.in">
+<meta property="og:url" content="https://forfreshers.in.com/login">
+<meta property="og:type" content="website">
 
 
 <link rel="stylesheet" href="css/bootstrap/bootstrap.min.css">
 <link rel="stylesheet" href="solstice-assets/fonts/fonts.css">
+
 </head>
 <body>
 	<div th:insert="~{layout/loginLayout :: login}"></div>
@@ -23,26 +25,25 @@
 	<!-- jquery library JS -->
 	<script src="/assets/js/jquery.min.js"></script>
 	<script type="text/javascript">
-	// Toggle password visibility on mouseover and click
-	$("#passwordToggleBtn").on("click", function() {
-	    console.log($("input[type=password][name=password]"));
+		// Toggle password visibility on mouseover and click
+		$("#passwordToggleBtn").on("click", function() {
+			console.log($("input[type=password][name=password]"));
 
-	    if ($("input[type=password][name=password]").length > 0) {
-	        // Change icon color and show password
-	        $("#password-eye > path").css({
-	            fill: "orange"
-	        });
-	        $("input[type=password]").attr("type", "text");
-	    } else {
-	        // Change icon color and hide password
-	        console.log("hide");
-	        $("input[name=password]").attr("type", "password");
-	        $("#password-eye > path").css({
-	            fill: "gray"
-	        });
-	    }
-	});
-
+			if ($("input[type=password][name=password]").length > 0) {
+				// Change icon color and show password
+				$("#password-eye > path").css({
+					fill : "orange"
+				});
+				$("input[type=password]").attr("type", "text");
+			} else {
+				// Change icon color and hide password
+				console.log("hide");
+				$("input[name=password]").attr("type", "password");
+				$("#password-eye > path").css({
+					fill : "gray"
+				});
+			}
+		});
 	</script>
 </body>
 </html>

@@ -5,6 +5,7 @@ import java.sql.Timestamp;
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.util.stream.Collectors;
@@ -20,6 +21,7 @@ import in.forFresher.dto.JobDto;
 import in.forFresher.dto.JobsDtoMyJobsList;
 import in.forFresher.entity.Company;
 import in.forFresher.entity.Jobs;
+import in.forFresher.exception.EntityNotFoundException;
 import in.forFresher.exception.IncompleteDataException;
 import in.forFresher.exception.InvalidDataException;
 import in.forFresher.repository.CategoryRepository;
@@ -74,14 +76,14 @@ public class JobsService {
 	}
 
 	public Jobs saveAndPublish(Map<String, Object> jobData) throws Exception {
-
+		validateId(jobData);
 		validateTitle(jobData);
 		validateCompany(jobData);
 		validatePositions(jobData);
 		validateLocations(jobData);
 		validateTypes(jobData);
-		validateQualifications(jobData);
 		validateCategory(jobData);
+		validateQualifications(jobData);
 		validateDescription(jobData);
 		validateExperience(jobData);
 		validateBatch(jobData);
@@ -93,9 +95,17 @@ public class JobsService {
 		newJob.setPublished((byte) 1);
 
 		return jobsRepository.save(newJob);
+		
 	}
 
+	public void validateId(Map<String, Object> jobData) throws InvalidDataException {
+		
+	}
+	
 	private void validateTitle(Map<String, Object> jobData) throws InvalidDataException {
+		if(jobData.get("id") != null) {
+			return;
+		}
 		String title = (String) jobData.get("title");
 		if (title == null || title.trim().isEmpty()) {
 			throw new InvalidDataException("Title is required");
@@ -226,14 +236,28 @@ public class JobsService {
 
 	}
 
-	/*
-	 * collect Data
-	 * 
-	 * @return jobs
-	 * 
+	/**
+	 * This method used to collect the job data from map object and store into new Jobs entity object
+	 * @param Map<String><Object> jobData
+	 * @return new jobs entity object
+	 * @author Saravanan Raja
+	 * @throws InvalidDataException, InvalidDataException
 	 */
-	private Jobs collectData(Map<String, Object> jobData) throws InvalidDataException {
-		Jobs newJob = new Jobs();
+	private Jobs collectData(Map<String, Object> jobData) throws EntityNotFoundException, InvalidDataException {
+		Jobs newJob;
+		/**
+		 * if update job comes with 'id' String, will check if id is exist we consider this request
+		 * is for update purpose.
+		 */
+		if(jobData.get("id") != null) {
+			Long jobId = ((Integer)jobData.get("id")).longValue();
+			newJob = jobsRepository.findById(jobId).orElseGet(null);
+			if(newJob == null) {
+				throw new EntityNotFoundException("job record is not exist in our database");
+			}			
+		}else {
+			newJob = new Jobs();
+		}
 
 		newJob.setTitle((String) jobData.get("title"));
 
@@ -417,11 +441,11 @@ public class JobsService {
 		Long jobIdLong = Long.valueOf(jobId);
 		Jobs job = jobsRepository.findByTitleAndId(jobTitle, jobIdLong);
 		return job;
-
 	}
 
 	/*
 	 * load more jobs for load more button
+	 * used at: index page and jobs page in future
 	 */
 
 	public List<JobDto> findJobs(LocalDateTime initialLoadTime, int offset, int limit, String location, String company, String type) {
@@ -429,4 +453,14 @@ public class JobsService {
         List<JobDto> jobPage = jobsRepository.findJobs(initialLoadTime, location, company, type, pageable);
         return jobPage;
     }
+	
+	/*
+	 * 
+	 */
+	public JobDto getJobByid(Long id) throws EntityNotFoundException {
+		Jobs a = jobsRepository.findById(id).orElseThrow(() -> new EntityNotFoundException("Job not found for id "+id));
+		JobDto jobDto = new JobDto(a);
+		return jobDto;
+	}
+	
 }

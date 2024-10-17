@@ -14,6 +14,8 @@ import in.forFresher.entity.Users;
 
 public class UserInfoDetails implements UserDetails{
 
+	private Long userId;
+	
 	private String username;
 
 	private String password;
@@ -32,6 +34,7 @@ public class UserInfoDetails implements UserDetails{
 		this.roles = Arrays.stream(user.getRole().split(","))
 				.map(SimpleGrantedAuthority::new)
 				.collect(Collectors.toList());
+		this.userId = user.getId();
 	}
 	
 	@Override
@@ -42,6 +45,16 @@ public class UserInfoDetails implements UserDetails{
 	@Override
 	public String getPassword() {
 		return this.password;
+	}
+	
+
+	public Long getUserId() {
+		return userId;
+	}
+
+
+	public List<GrantedAuthority> getRoles() {
+		return roles;
 	}
 
 	@Override

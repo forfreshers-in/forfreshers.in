@@ -34,8 +34,8 @@ public class SecurityConfiguration {
             .httpBasic(Customizer.withDefaults())
             .formLogin(form -> form
                 .loginPage("/login").permitAll().defaultSuccessUrl("/admin/dashboard"))
-            .csrf(AbstractHttpConfigurer::disable);
-        return http.build();
+            .csrf(AbstractHttpConfigurer::disable).headers(header -> header.frameOptions().sameOrigin());
+        return http.headers(header -> header.frameOptions().sameOrigin()).build() ;
 	}
 	
 

@@ -24,18 +24,6 @@ public class LocationApiController {
 	@Autowired
 	private LocationService locationService;
 
-	@GetMapping(value = "/locations", name = "GetAllLocations")
-	public ResponseEntity<Object> getAllPositions() {
-		try {
-			List<Location> locations = locationRespository.findAll();
-			if (locations == null || locations.size() == 0) {
-				return ResponseEntity.status(HttpStatus.NO_CONTENT).body("Locations are not exist in database");
-			}
-			return ResponseEntity.ok(locations);
-		} catch (Exception e) {
-			return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(e.getMessage());
-		}
-	}
 	
 	@GetMapping(value = "/locationCities", name = "getAllCitiesFromLocation")
 	public ResponseEntity<Object> getAllCitiesFromLocation(){

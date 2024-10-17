@@ -131,6 +131,17 @@
 					</archive>
 				</configuration>
 			</plugin>
+			
+			<!--Documentation -->
+		  <plugin>
+	         <groupId>org.apache.maven.plugins</groupId>
+	         <artifactId>maven-javadoc-plugin</artifactId>
+	         <version>3.3.1</version>
+	         <configuration>
+	            <show>public</show>
+	            <source>17</source> <!-- Use your project's Java version -->
+	         </configuration>
+	      </plugin>
 
 		</plugins>
 	</build>

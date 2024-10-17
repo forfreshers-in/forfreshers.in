@@ -15,8 +15,6 @@
 <meta property="og:title" th:content="${jobDetails.title}">
 <meta property="og:description"
 	th:content="'Explore career opportunities in the fields of '+${#strings.listJoin(positionsInArray, ',')} + ' at ' + ${jobDetails.company.name}">
-<meta property="og:image"
-	content="https://www.forfreshers.in/solstice-assets/images/logos/logoWithName.png">
 <meta property="og:url"
 	th:content="'https://www.forfreshers.in/jobs/'+${jobDetails.title}+'-'+${jobDetails.id}">
 
@@ -47,7 +45,7 @@
 }
 
 h5 {
-	background-color: #530031;
+	background-color: #FF7100;
 	width: fit-content;
 	padding-right: 45px;
 	border-radius: 0px 10px 10px 0px;
@@ -68,7 +66,7 @@ h5 {
 
 		<!-- Job View section -->
 		<section>
-			<div class="container shadow">
+			<div class="container shadow mb-5">
 				<!-- Job Title container -->
 				<div class="w-100 ">
 					<p class="text-light-dark">
@@ -151,15 +149,17 @@ h5 {
 							<script async
 								src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3287070572417360"
 								crossorigin="anonymous"></script>
-							<!-- horizontal-lengthy-banner -->
+							<!-- horizontal-lengthy-banner  for mobile-->
 							<ins class="adsbygoogle d-md-none"
 								style="display: inline-block; width: 320px; height: 50px"
 								data-ad-client="ca-pub-3287070572417360"
-								data-ad-slot="3146437549"></ins>
+								data-ad-slot="3146437549" data-full-width-responsive="false"
+								data-ad-format="horizontal"></ins>
 							<script>
 								(adsbygoogle = window.adsbygoogle || [])
 										.push({});
 							</script>
+							<!-- horizontal-lengthy-banner  for large screen-->
 							<ins class="adsbygoogle d-none d-md-block"
 								style="display: inline-block; width: 720px; height: 90px"
 								data-ad-client="ca-pub-3287070572417360"
@@ -206,7 +206,8 @@ h5 {
 							<ins class="adsbygoogle"
 								style="display: inline-block; width: 320px; height: 50px"
 								data-ad-client="ca-pub-3287070572417360"
-								data-ad-slot="4151634169"></ins>
+								data-ad-slot="4151634169" data-ad-format="horizontal"
+								data-full-width-responsive="false"></ins>
 							<script>
 								(adsbygoogle = window.adsbygoogle || [])
 										.push({});
@@ -217,37 +218,49 @@ h5 {
 
 							<!--  experiance if exist in data -->
 							<h5 class="mt-5"
-								th:if="${jobDetails.experience_from != null || jobDetails.experience_to != null}">Experience</h5>
+								th:if="${jobDetails.experience_from != null || jobDetails.experience_to != null}">Experience
+								required</h5>
 
 							<span
 								th:if="${jobDetails.experience_from != null || jobDetails.experience_to != null}">
 
-								<!-- Case where experience_from is not null but experience_to is null -->
-								<span
+								<!-- Case where only experience_from is provided --> <span
 								th:if="${jobDetails.experience_from != null && jobDetails.experience_to == null}">
 									<p class="text-dark text-indend">
-										<span th:text="${jobDetails.experience_from}"></span>+ Year
+										Minimum <span
+											th:text="${jobDetails.experience_from.intValue() == jobDetails.experience_from.floatValue() ? jobDetails.experience_from.intValue() : jobDetails.experience_from}"></span>
+										Year
 									</p>
-							</span> <!-- Case where experience_from is null but experience_to is not null -->
-								<span
+							</span> <!-- Case where only experience_to is provided --> <span
 								th:if="${jobDetails.experience_from == null && jobDetails.experience_to != null}">
 									<p class="text-dark text-indend">
-										Maximum <span th:text="${jobDetails.experience_to}"></span>
+										Maximum <span
+											th:text="${jobDetails.experience_to.intValue() == jobDetails.experience_to.floatValue() ? jobDetails.experience_to.intValue() : jobDetails.experience_to}"></span>
 										Year
 									</p>
 							</span> <!-- Case where experience_from and experience_to are equal -->
 								<span
-								th:if="${jobDetails.experience_from == jobDetails.experience_to}">
-									<p class="text-dark text-indend"
-										th:if="${jobDetails.experience_from == 0}">Freshers / 0
+								th:if="${jobDetails.experience_from != null && jobDetails.experience_to != null && jobDetails.experience_from == jobDetails.experience_to}">
+									<p class="text-dark text-indend" th:if="${jobDetails.experience_from == 0}">Freshers / 0
 										Year Experience</p>
+									<p class="text-dark text-indend"
+										th:if="${jobDetails.experience_from != 0}">
+										<span
+											th:text="${jobDetails.experience_from.intValue() == jobDetails.experience_from.floatValue() ? jobDetails.experience_from.intValue() : jobDetails.experience_from}"></span>
+										Year
+									</p>
+							</span> <!-- Case where experience_from and experience_to are different -->
+								<span
+								th:if="${jobDetails.experience_from != null && jobDetails.experience_to != null && jobDetails.experience_from != jobDetails.experience_to}">
+									<p class="text-dark text-indend">
+										<span
+											th:text="${jobDetails.experience_from.intValue() == jobDetails.experience_from.floatValue() ? jobDetails.experience_from.intValue() : jobDetails.experience_from}"></span>
+										to <span
+											th:text="${jobDetails.experience_to.intValue() == jobDetails.experience_to.floatValue() ? jobDetails.experience_to.intValue() : jobDetails.experience_to}"></span>
+										Year
+									</p>
 							</span>
 
-								<p class="text-dark text-indend"
-									th:if="${jobDetails.experience_from != jobDetails.experience_to}">
-									<span th:text="${jobDetails.experience_from}"></span> to <span
-										th:text="${jobDetails.experience_to}"></span> Year
-								</p>
 							</span> </span>
 						</div>
 
@@ -255,14 +268,19 @@ h5 {
 							<span class="mt-5 d-flex align-items-center" id="Hr-mail">
 								<h5 class="">Contact HR</h5>
 
-							</span> <span class=" text-primary fw-bolder display-5 text-indend"
+							</span> <span class=" text-secondary fw-bolder display-5 text-indend"
 								th:text="${jobDetails.hrMail}" id="hr-mail">here HR email</span>
 							<button class="ms-2 btn btn-primary p-1 px-3 "
 								id="hrMail-copy-btn">
 								<i class="zmdi zmdi-copy"></i>
 							</button>
 						</div>
-
+						<div class="text-center">
+							<span th:if="${jobDetails.applyLink != ''}"> <a
+								target="_blank" th:href="${jobDetails.applyLink}"
+								class="btn btn-primary mt-5 mb-2">Apply now</a>
+							</span>
+						</div>
 					</div>
 
 
@@ -289,7 +307,7 @@ h5 {
 									th:text="' - ' + ${jobDetails.maxSalary}"></span>
 								</span> LPA
 							</p>
-							<p class="text-light-dark fs-6">
+							<p class="text-dark fs-6">
 								Salary<span
 									th:if="${jobDetails.minSalary == null && jobDetails.maxSalary == null}">:
 									Not disclosed</span>
@@ -371,8 +389,8 @@ h5 {
 	                            </svg>
 								<span class="fw-bold">Why company?</span>
 							</p>
-							<span th:if="${jobDetails.hrMail != ''}" class="w-100 d-none"> <a
-								class="btn btn-primary p-2 w-100"
+							<span th:if="${jobDetails.hrMail != ''}" class="w-100 d-none">
+								<a class="btn btn-primary p-2 w-100"
 								href="https://mail.google.com/mail/u/0/?view=cm&amp;fs=1&amp;to=${jobDetails.hrMail}&amp;tf=1">Mail
 									to recruiter</a>
 							</span>
@@ -400,9 +418,19 @@ h5 {
 						</div>
 
 						<div class="ads-container text-center my-5">
+
+							<ins class="adsbygoogle btn-outline-light d-md-none"
+								style="display: block;" data-ad-client="ca-pub-3287070572417360"
+								data-ad-slot="9624738762" data-ad-format="horizontal"
+								data-full-width-responsive="false"></ins>
+							<script>
+								(adsbygoogle = window.adsbygoogle || [])
+										.push({});
+							</script>
 							<!-- display-ad-1 -->
-							<ins class="adsbygoogle btn-outline-light" style="display: block"
-								data-ad-client="ca-pub-3287070572417360"
+
+							<ins class="adsbygoogle btn-outline-light d-none d-lg-block"
+								style="display: block" data-ad-client="ca-pub-3287070572417360"
 								data-ad-slot="9624738762" data-ad-format="auto"
 								data-full-width-responsive="true"></ins>
 							<script>
@@ -410,8 +438,8 @@ h5 {
 										.push({});
 							</script>
 
-							<ins class="adsbygoogle btn-outline-light d-none d-lg-block " style="display: block"
-								data-ad-client="ca-pub-3287070572417360"
+							<ins class="adsbygoogle btn-outline-light d-none d-lg-block "
+								style="display: block" data-ad-client="ca-pub-3287070572417360"
 								data-ad-slot="6080541937" data-ad-format="auto"
 								data-full-width-responsive="true"></ins>
 							<script>
@@ -426,18 +454,14 @@ h5 {
 			</div>
 
 		</section>
-		<div class="overflow-hiddan w-100 text-center">
+		<div class="overflow-hiddan w-100 text-center mb-4">
 			<ins class="adsbygoogle btn-outline-light" style="display: block"
 				data-ad-client="ca-pub-3287070572417360" data-ad-slot="1488411956"
-				data-ad-format="auto" data-full-width-responsive="true"></ins>
+				data-ad-format="auto" data-full-width-responsive="false"></ins>
 			<script>
 				(adsbygoogle = window.adsbygoogle || []).push({});
 			</script>
 		</div>
-
-
-
-
 	</div>
 
 	<!-- jquery library JS -->

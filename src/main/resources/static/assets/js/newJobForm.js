@@ -3,16 +3,21 @@ var selected_locations;
 var selected_types;
 var selected_qualifications;
 var awasome_notifier = new AWN();
+let successSound = new Audio(location.origin+'/assets/audio/magical-twinkle.mp3');
+var description_input_quill;
 
 $(document).ready(function() {
-	$('#company-name-datalist').autocomplete({
-
-	})
+	
 
 	selected_positions = $('#positions-input').magicSuggest({
 		data: [],
-		required: true
+		required: true,
+		useCommaKey: false
 	})
+	// fetch company names datas from database
+	$('#company-name-datalist').data("prefetch", location.origin + "/api/companies")
+	$('#company-name-datalist').autocomplete();
+	
 	// fetch positions datas from database
 	$.ajax({
 		url: location.origin + "/api/positions",
@@ -21,7 +26,7 @@ $(document).ready(function() {
 			selected_positions.setData(response);
 		},
 		error: function(xhr, status, error) {
-			new AWN().alert("Job positions not fetch try later or refresh page");
+			awasome_notifier.alert("Job positions not fetch try later or refresh page");
 		},
 		complete: {
 
@@ -41,7 +46,7 @@ $(document).ready(function() {
 			selected_locations.setData(response);
 		},
 		error: function(xhr, status, error) {
-			new AWN().alert("Location not fetched refresh page or Try later");
+			awasome_notifier.alert("Location not fetched refresh page or Try later");
 		}
 	})
 	
@@ -59,19 +64,19 @@ $(document).ready(function() {
 			selected_types.setData(response);
 		},
 		error: function(xhr, status, error) {
-			new AWN().alert("Types not fetched refresh page or Try later");
+			awasome_notifier.alert("Types not fetched refresh page or Try later");
 		}
 	})
 
-	$('#category-input').autocomplete({
-
-	})
+	$('#category-input').data("prefetch", location.origin + "/api/categories")
+	$('#category-input').autocomplete()
 
 	selected_qualifications = $('#qualifications-input').magicSuggest({
 		data: [],
 		allowFreeEntries: true,
 		required: true
 	})
+	
 	$.ajax({
 		url: location.origin + "/api/qualifications",
 		method: "GET",
@@ -79,13 +84,24 @@ $(document).ready(function() {
 			selected_qualifications.setData(response);
 		},
 		error: function(xhr, status, error) {
-			new AWN().alert("Qualification not fetched refresh page or Try later");
+			awasome_notifier.alert("Qualification not fetched refresh page or Try later");
 		}
 	})
-
+	// Quill Text editor 
+		const toolbarOptions = [
+	  ['bold', 'italic', 'underline'],        // toggled buttons
+	  ['link'],
+	  [{ 'header': 4 }],               // custom button values
+	  [{ 'list': 'ordered'}, { 'list': 'bullet' }],
+	  [{ 'header': [4,false] }],
+	  [{ 'align': [] }],
+	  ['clean']                                         // remove formatting button
+		];
 	description_input_quill = new Quill('#description-input', {
 		modules: {
-			toolbar: true,
+			toolbar: {
+				 container: '#toolbar', // Selector for toolbar container
+				},
 		},
 		placeholder: 'Enter any additional information about job...',
 		theme: 'snow'
@@ -103,35 +119,53 @@ $("form").submit(function(event) {
 })
 
 $("#btn-publish").click(function() {
+	
 	let onCancel = () => {new AWN().info("canceled")};
 	let confirm = ()=>{
-		
+		awasome_notifier.tip('Sending request, please wait...',{
+			icons:{
+				tip: "spinner",
+				prefix: "<i class='fa rotate fa-"
+			}
+		});
 		$.ajax({
 			url: location.origin + "/api/jobs/publish",
 			method: "POST",
 			contentType: "application/json",
 			data: getFormData(),
+			async: true,
 			success: function(response) {
-				new AWN().success("job posted successfully");
+				awasome_notifier.success("job posted successfully");
+				successSound.play();
+				party.confetti($('body')[0],{
+					count: party.variation.range(50, 100),
+				})
 			},
 			error: function(xhr, status, error) {
-				new AWN().alert(xhr.responseText);
+				if (xhr.status === 401) {			
+					showLoginIframe();
+					return;
+				}
+				awasome_notifier.alert(xhr.responseText);
 			},
 			complete: {
-	
+			
 			}
 		})
 	}
-	awasome_notifier.confirm("Are you sure publish job",confirm,onCancel,{
+	awasome_notifier.confirm("Sure you’re good? 👌 Hit launch if ready!",confirm,onCancel,{
       labels: {
-        confirm: 'Dangerous action'
-      }
+        confirm: 'Confirmation required!',
+        confirmOk: 'Launch 🚀',
+        confirmCancel: 'Abort 🛑'
+        
+      },
     })
 })
 
 //getting form datas
 function getFormData() {
-	console.log(selected_locations.getValue());
+	
 	let formData = {
 		title: $('#add-form-title').val(),
 		company: $('#company-name-datalist').val(),
@@ -154,7 +188,10 @@ function getFormData() {
 		expiry: $('#expiry-input').val(),
 		agreeTerms: $('#user-checkbox1').is(':checked')
 	};
-
+	try{
+		formData.id = editJobContainer.data("job-id");
+	}catch(error){}
+	
 	return JSON.stringify(formData);
 }
 $(selected_locations).on('selectionchange', function() {

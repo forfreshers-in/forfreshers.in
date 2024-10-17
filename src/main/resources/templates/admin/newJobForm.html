@@ -42,6 +42,7 @@
 <link href="/assets/css/app-style.css" rel="stylesheet" />
 
 
+
 </head>
 
 <body class="bg-theme bg-theme1">
@@ -96,57 +97,98 @@
 							</div>
 							<div class="card-body">
 
-								<form>
+							 	<form>
 									<div class="form-group">
-										<label for="add-form-title">title</label> <input type="text"
+										<label for="add-form-title">title * </label> <input type="text"
 											class="form-control" id="add-form-title" name="title"
 											placeholder="Enter job title">
+										<small>Eg: &lt;companyName&gt; hiring &lt;role/multiple role&gt; &lt;currentMonth(optional)&gt;</small>
 									</div>
 									<div class="form-group">
-										<label for="company-name-datalist">company</label> <input
+										<label for="company-name-datalist">company *</label> <input
 											type="text" class="form-control"
-											placeholder="Enter Company name" list="company-name-list"
+											placeholder="Enter Company name" 
 											id="company-name-datalist">
-										<datalist id="company-name-list">
-											<option th:each="company : ${companies}"
-												th:text=${company.name} th:value="${company.id}"></option>
-										</datalist>
+										<small>important: Type it and check is exist in the list if exist please choose that else type it own.</small>
+										
 									</div>
 									<div class="form-group">
-										<label for="positions-input">positions</label> <input
+										<label for="positions-input">positions *</label> <input
 											type="text" class="form-control" id="positions-input"
 											placeholder="Enter positions">
+										<small>important: Type it and check is exist in the list if exist please choose that else type it own, you can enter multiple roles here, please don't enter dublicates.</small>
 									</div>
 									<div class="form-group">
-										<label for="locations-input">locations</label> <input
+										<label for="locations-input">locations *</label> <input
 											type="text" class="form-control" id="locations-input"
 											placeholder="Enter locations">
-									</div>
+											
+										<small>- important: Type it and check is exist in the list if exist please choose that else type it own, you can enter multiple Locations here, please don't enter dublicates.</small>
+										<br><small class="fw-bold">- if not exist follow this format: &lt;City&gt;, &lt;State&gt;</small>
+										</div>
 
 									<div class="form-group">
-										<label for="types-input">Types ex:hybrid, wfh..,</label> <input
+										<label for="types-input">Types * ex:hybrid, wfh..,</label> <input
 											type="text" class="form-control" id="types-input"
 											placeholder="Enter job Type ex: hybrid, WFH..,">
+										<small>- important: Choose any type only in the list</small>
 									</div>
 
 									<div class="form-group">
-										<label for="category-input">Category</label> <input
+										<label for="category-input">Category *</label> <input
 											type="text" class="form-control" id="category-input"
-											placeholder="Enter category" list="categorye-list">
-										<datalist id="categorye-list">
-											<option th:each="category : ${categories}"
-												th:text=${category.name} th:value="${category.id}"></option>
-										</datalist>
+											placeholder="Enter category" >
+											<small>- important: Choose any one category in the list</small>
+										
 									</div>
 									<div class="form-group">
-										<label for="qualifications-input">Qualifications</label> <input
+										<label for="qualifications-input">Qualifications *</label> <input
 											type="text" class="form-control" id="qualifications-input"
 											placeholder="Enter qualifications">
+											<small>- important: choose in list, if not exist type it own in the following format</small><br>
+											<small>- format: Eg: "BE - bachelor of Engineering"</small>>
 									</div>
 
 									<div class="form-group">
-										<label for="description-input">description <span
-											class="disable">optional</span></label>
+										<label for="description-input">description </label>
+
+										<!--  customized text toolbar -->
+										<div id="toolbar" class="ql-toolbar ql-snow bg-white">
+											<span class="ql-formats"> <!-- Bold -->
+												<button class="ql-bold" aria-label="Bold"></button> <!-- Italic -->
+												<button class="ql-italic" aria-label="Italic"></button> <!-- Underline -->
+												<button class="ql-underline" aria-label="Underline"></button>
+											</span> <span class="ql-formats"> <!-- Link -->
+												<button class="ql-link" aria-label="Insert Link"></button>
+											</span> <span class="ql-formats"> <!-- Header Dropdown (Normal, H4) -->
+												<select class="ql-header d-none">
+													<option value="0">Normal</option>
+													<option value="5">H5</option>
+											</select>
+											
+
+											<span class="ql-formats text-nowrap"> 
+												<!-- H4 Button -->
+												<button class="ql-header btn" value="5">Heading</button>
+											</span>
+										</span> <span class="ql-formats"> <!-- Ordered List -->
+												<button class="ql-list" value="ordered"
+													aria-label="Ordered List"></button> <!-- Bullet List -->
+												<button class="ql-list" value="bullet"
+													aria-label="Bullet List"></button>
+											</span> <span class="ql-formats"> <!-- Text Alignment --> <select
+												class="ql-align">
+													<option selected></option>
+													<option value="center"></option>
+													<option value="right"></option>
+													<option value="justify"></option>
+											</select>
+											</span> <span class="ql-formats"> <!-- Clear Formatting -->
+												<button class="ql-clean" aria-label="Clear Formatting"></button>
+											</span>
+										</div>
+
+
 										<div type="text" class="form-control" id="description-input"
 											placeholder="Enter description"></div>
 									</div>
@@ -181,10 +223,9 @@
 											placeholder="Enter salary in LPA">
 									</div>
 
-									<div class="form-group border border-light-3 rounded p-2">
-										<p class="text-center">
-											for<strong> walk in drive</strong>
-										</p>
+									<div class="form-group border border-light-3 rounded p-2 shadow">
+										<p class="text-center"><small class="text-center alert alert-warning p-1 px-3 text-dark shadow">Ignore it if your entry is not walk in drive or
+											not contain any specific date</small></p>
 										<div class="d-flex justify-content-between flex-wrap">
 											<div class="">
 												<label for="start-date-time-input">start date <span
@@ -199,8 +240,7 @@
 													you know</small>
 											</div>
 										</div>
-										<small>Ignore it if your entry is not walk in drive or
-											not contain any specific date</small>
+										
 									</div>
 
 									<div class="form-group">
@@ -216,10 +256,9 @@
 									</div>
 
 									<div class="form-group">
-										<label for="expiry-input">expiry at <small
-											class="lowercase">(auto remove)</small></label> <input type="date"
-											id="expiry-input" class="form-control" /> <small>Default:
-											3 month from your creation</small>
+										<label for="expiry-input">expiry at *</label> <input type="date"
+											id="expiry-input" class="form-control" /><small
+											class="lowercase">(Post will disappear from candidate after expired)</small>
 									</div>
 
 									<div class="form-group py-2">
@@ -231,11 +270,11 @@
 									</div>
 									<div class="form-group d-flex flex-wrap justify-content-around">
 										<button id="btn-save-draft" type="submit"
-											class="btn btn-dark px-5 disabled m-2">
+											class="btn btn-dark px-5 disabled m-2  d-none">
 											<i class="icon-lock"></i> save draft
 										</button>
 										<button id="btn-preview" type="submit"
-											class="btn btn-secondary px-5 disabled m-2">
+											class="btn btn-secondary px-5 disabled m-2 d-none">
 											<i class="zmdi zmdi-eye"></i> preview
 										</button>
 										<button id="btn-publish" type="submit"
@@ -245,34 +284,6 @@
 									</div>
 								</form>
 
-							</div>
-
-							<div
-								class="row m-0 row-group text-center border-top border-light-3">
-								<div class="col-12 col-lg-4">
-									<div class="p-3">
-										<h5 class="mb-0">45.87M</h5>
-										<small class="mb-0">Overall Visitor <span> <i
-												class="fa fa-arrow-up"></i> 2.43%
-										</span></small>
-									</div>
-								</div>
-								<div class="col-12 col-lg-4">
-									<div class="p-3">
-										<h5 class="mb-0">15:48</h5>
-										<small class="mb-0">Visitor Duration <span> <i
-												class="fa fa-arrow-up"></i> 12.65%
-										</span></small>
-									</div>
-								</div>
-								<div class="col-12 col-lg-4">
-									<div class="p-3">
-										<h5 class="mb-0">245.65</h5>
-										<small class="mb-0">Pages/Visit <span> <i
-												class="fa fa-arrow-up"></i> 5.62%
-										</span></small>
-									</div>
-								</div>
 							</div>
 
 						</div>
@@ -328,129 +339,6 @@
 											<td>$1105</td>
 											<td>+5%</td>
 										</tr>
-									</tbody>
-								</table>
-							</div>
-						</div>
-					</div>
-				</div>
-				<!--End Row-->
-
-				<div class="row">
-					<div class="col-12 col-lg-12">
-						<div class="card">
-							<div class="card-header">
-								Recent Order Tables
-								<div class="card-action">
-									<div class="dropdown">
-										<a href="javascript:void();"
-											class="dropdown-toggle dropdown-toggle-nocaret"
-											data-toggle="dropdown"> <i class="icon-options"></i>
-										</a>
-										<div class="dropdown-menu dropdown-menu-right">
-											<a class="dropdown-item" href="javascript:void();">Action</a>
-											<a class="dropdown-item" href="javascript:void();">Another
-												action</a> <a class="dropdown-item" href="javascript:void();">Something
-												else here</a>
-											<div class="dropdown-divider"></div>
-											<a class="dropdown-item" href="javascript:void();">Separated
-												link</a>
-										</div>
-									</div>
-								</div>
-							</div>
-							<div class="table-responsive">
-								<table
-									class="table align-items-center table-flush table-borderless">
-									<thead>
-										<tr>
-											<th>Product</th>
-											<th>Photo</th>
-											<th>Product ID</th>
-											<th>Amount</th>
-											<th>Date</th>
-											<th>Shipping</th>
-										</tr>
-									</thead>
-									<tbody>
-										<tr>
-											<td>Iphone 5</td>
-											<td><img src="https://via.placeholder.com/110x110"
-												class="product-img" alt="product img"></td>
-											<td>#9405822</td>
-											<td>$ 1250.00</td>
-											<td>03 Aug 2017</td>
-											<td><div class="progress shadow" style="height: 3px;">
-													<div class="progress-bar" role="progressbar"
-														style="width: 90%"></div>
-												</div></td>
-										</tr>
-
-										<tr>
-											<td>Earphone GL</td>
-											<td><img src="https://via.placeholder.com/110x110"
-												class="product-img" alt="product img"></td>
-											<td>#9405820</td>
-											<td>$ 1500.00</td>
-											<td>03 Aug 2017</td>
-											<td><div class="progress shadow" style="height: 3px;">
-													<div class="progress-bar" role="progressbar"
-														style="width: 60%"></div>
-												</div></td>
-										</tr>
-
-										<tr>
-											<td>HD Hand Camera</td>
-											<td><img src="https://via.placeholder.com/110x110"
-												class="product-img" alt="product img"></td>
-											<td>#9405830</td>
-											<td>$ 1400.00</td>
-											<td>03 Aug 2017</td>
-											<td><div class="progress shadow" style="height: 3px;">
-													<div class="progress-bar" role="progressbar"
-														style="width: 70%"></div>
-												</div></td>
-										</tr>
-
-										<tr>
-											<td>Clasic Shoes</td>
-											<td><img src="https://via.placeholder.com/110x110"
-												class="product-img" alt="product img"></td>
-											<td>#9405825</td>
-											<td>$ 1200.00</td>
-											<td>03 Aug 2017</td>
-											<td><div class="progress shadow" style="height: 3px;">
-													<div class="progress-bar" role="progressbar"
-														style="width: 100%"></div>
-												</div></td>
-										</tr>
-
-										<tr>
-											<td>Hand Watch</td>
-											<td><img src="https://via.placeholder.com/110x110"
-												class="product-img" alt="product img"></td>
-											<td>#9405840</td>
-											<td>$ 1800.00</td>
-											<td>03 Aug 2017</td>
-											<td><div class="progress shadow" style="height: 3px;">
-													<div class="progress-bar" role="progressbar"
-														style="width: 40%"></div>
-												</div></td>
-										</tr>
-
-										<tr>
-											<td>Clasic Shoes</td>
-											<td><img src="https://via.placeholder.com/110x110"
-												class="product-img" alt="product img"></td>
-											<td>#9405825</td>
-											<td>$ 1200.00</td>
-											<td>03 Aug 2017</td>
-											<td><div class="progress shadow" style="height: 3px;">
-													<div class="progress-bar" role="progressbar"
-														style="width: 100%"></div>
-												</div></td>
-										</tr>
-
 									</tbody>
 								</table>
 							</div>
@@ -522,7 +410,10 @@
 	<script type="text/javascript"
 		src="/assets/plugins/year-picker/yearpicker.js"></script>
 
-	<!-- Index js -->
+	<!-- party.js  -->
+	<script src="https://cdn.jsdelivr.net/npm/party-js@latest/bundle/party.min.js"></script>
+
+	<!-- newJobFrom js -->
 	<script src="/assets/js/newJobForm.js"></script>
 
 </body>
