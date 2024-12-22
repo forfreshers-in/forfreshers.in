@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<meta charset="UTF-8">
+<link rel="stylesheet" th:href="@{/css/bootstrap/bootstrap.min.css}">
+<link rel="stylesheet" th:href="@{solstice-assets/fonts/fonts.css}">
+<!--  mail css -->
+<link rel="stylesheet" th:href="@{/css/main.css}">
+<!-- awasome fonts -->
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+<title>Job not found</title>
+
+<meta name="author" content="Saravanan Raja">
+
+</head>
+<body>
+	<header>
+		<div th:insert="~{layout/navbar :: navbar}"></div>
+	</header>
+	<section class="d-flex p-4 my-10 flex-column justify-content-center align-items-center">
+		<h1 class="display-1 fw-bolder">Sorry !</h1>
+		<p class="text-light-dark display-5">Job not found</p>
+		<p class="text-center">The Job you are looking for was unpublished by author or expired!</p>
+		<a href="/" class="btn btn-primary">See more jobs</a>
+	</section>
+
+	<footer>
+		<div th:replace="~{layout/footer :: footer}"></div>
+	</footer>
+	<!-- jquery library JS -->
+	<script src="/assets/js/jquery.min.js"></script>
+	<!-- Popper.js -->
+	<script src="/webjars/popper.js/2.9.2/umd/popper.min.js"></script>
+	<script src="/webjars/bootstrap/5.2.1/js/bootstrap.min.js"></script>
+	<!-- main User application JS -->
+	<script src="js/main.js"></script>
+
+</body>
+</html>

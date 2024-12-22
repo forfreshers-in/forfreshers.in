@@ -14,18 +14,27 @@ import in.forFresher.entity.Users;
 
 public class UserInfoDetails implements UserDetails{
 
+	private Long userId;
+	
 	private String username;
 
 	private String password;
+	
+	private String firstname;
+	
+	private String email;
 
 	private List<GrantedAuthority> roles;
 
 	public UserInfoDetails(Users user) {
 		this.username = user.getUsername();
 		this.password = user.getPassword();
+		this.firstname = user.getName();
+		this.email = user.getEmail();
 		this.roles = Arrays.stream(user.getRole().split(","))
 				.map(SimpleGrantedAuthority::new)
 				.collect(Collectors.toList());
+		this.userId = user.getId();
 	}
 	
 	@Override
@@ -37,12 +46,30 @@ public class UserInfoDetails implements UserDetails{
 	public String getPassword() {
 		return this.password;
 	}
+	
+
+	public Long getUserId() {
+		return userId;
+	}
+
+
+	public List<GrantedAuthority> getRoles() {
+		return roles;
+	}
 
 	@Override
 	public String getUsername() {
 		return this.username;
 	}
-
+	
+	public String getFirstname() {
+		return this.firstname;
+	}
+	
+	public String getEmail() {
+		return this.email;
+	}
+	
 	@Override
 	public boolean isAccountNonExpired() {
 		// TODO Auto-generated method stub

@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+
+<!--  tag for google ads and analytics -->
+<th:block th:replace="~{layout/headTags :: #body}"></th:block>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<meta charset="UTF-8">
+<link rel="stylesheet" href="css/bootstrap/bootstrap.min.css">
+<link rel="stylesheet" href="solstice-assets/fonts/fonts.css">
+
+<title>Features - forfreshers.in</title>
+<meta name="description"
+	content="Our community page is the heart of our platform, where job seekers, employers, and industry professionals come together to share, learn, and grow.">
+
+<meta property="og:title" content="Our Features">	
+<meta property="og:description"
+	content="Our community page is the heart of our platform, where job seekers, employers, and industry professionals come together to share, learn, and grow.">
+<meta property="og:image" th:content="@{/solstice-assets/images/logos/logoWithName.png}">
+<meta property="og:url" th:content="@{/features}">
+
+<link rel="canonical" th:href="@{/features}">
+
+<meta name="author" content="Saravanan Raja">
+
+</head>
+<body>
+	<header>
+		<div th:insert="~{layout/navbar :: navbar}"></div>
+	</header>
+	<section class="pb-12 pb-lg-24">
+
+		<div class="container">
+			<div class="text-center mb-24">
+				<h3 class="font-heading mb-4">Discover features</h3>
+				<p class="text-light-dark mb-0">Innovative features tailored to
+					enhance your learning experience.</p>
+			</div>
+			<div class="row mb-n12">
+
+				<div class="col-lg-3 col-md-4 col-sm-6">
+					<span class="text-primary fw-bolder"> <i
+						class="fa-solid fa-check"></i>
+					</span>
+					<div class="position-relative my-4">
+						<div
+							class="position-absolute top-0 start-0 py-3 ms-n4 border-2 border-start border-primary"></div>
+						<h5>Verified Job Postings</h5>
+					</div>
+					<p class="text-light-dark">All job posts are thoroughly
+						verified before being published, ensuring that only legitimate
+						opportunities are available.</p>
+				</div>
+
+				<div class="col-lg-3 col-md-4 col-sm-6">
+					<span class="text-primary fw-bolder"><i class="fa-regular fa-building"></i></span>
+					<div class="position-relative my-4">
+						<div
+							class="position-absolute top-0 start-0 py-3 ms-n4 border-2 border-start border-primary"></div>
+						<h5>No Consultancy or Fake Jobs</h5>
+					</div>
+					<p>Our platform is dedicated to providing real job
+						opportunities, free from consultancy scams or misleading offers.</p>
+				</div>
+
+				<div class="col-lg-3 col-md-4 col-sm-6">
+					<span class="text-primary fw-bolder"> <i class="fa-brands fa-searchengin"></i>
+					</span>
+					<div class="position-relative my-4">
+						<div
+							class="position-absolute top-0 start-0 py-3 ms-n4 border-2 border-start border-primary"></div>
+						<h5>Employer Screening</h5>
+					</div>
+					<p>We perform background checks on employers to ensure they are
+						genuine and reliable, providing job seekers with peace of mind.</p>
+				</div>
+				
+				<!--  this feature is hided because this function is not implements -->
+				
+
+				<div class="col-lg-3 col-md-4 col-sm-6 d-none">
+					<span class="text-primary fw-bolder"><i class="fa-regular fa-comment-dots"></i>
+					</span>
+					<div class="position-relative my-4">
+						<div
+							class="position-absolute top-0 start-0 py-3 ms-n4 border-2 border-start border-primary"></div>
+						<h5>User Feedback System</h5>
+					</div>
+					<p>Job seekers can leave feedback on their application
+						experience, helping to maintain the quality and authenticity of
+						job postings.</p>
+				</div>
+
+				<div class="col-lg-3 col-md-4 col-sm-6">
+					<span class="text-primary fw-bolder"> <i class="fa-regular fa-eye"></i>
+					</span>
+					<div class="position-relative my-4">
+						<div
+							class="position-absolute top-0 start-0 py-3 ms-n4 border-2 border-start border-primary"></div>
+						<h5>Regular Audits</h5>
+					</div>
+					<p>We conduct regular audits of posted jobs to ensure that
+						outdated or fraudulent listings are removed promptly.</p>
+				</div>
+
+				<div class="col-lg-3 col-md-4 col-sm-6">
+					<span class="text-primary fw-bolder"> <i class="fa-regular fa-thumbs-up"></i>
+					</span>
+					<div class="position-relative my-4">
+						<div
+							class="position-absolute top-0 start-0 py-3 ms-n4 border-2 border-start border-primary"></div>
+						<h5>Trustworthy Community</h5>
+					</div>
+					<p>By fostering a community of honest employers and job
+						seekers, we aim to build a trustworthy environment for career
+						growth.</p>
+				</div>
+
+				<div class="col-lg-3 col-md-4 col-sm-6">
+					<span class="text-primary fw-bolder"> <i class="fa-brands fa-codepen"></i>
+					</span>
+					<div class="position-relative my-4">
+						<div
+							class="position-absolute top-0 start-0 py-3 ms-n4 border-2 border-start border-primary"></div>
+						<h5>Transparency in Job Details</h5>
+					</div>
+					<p>Clear and detailed job descriptions, including company
+						information, salary ranges, and application processes, so
+						candidates know exactly what to expect.</p>
+				</div>
+
+				<div class="col-lg-3 col-md-4 col-sm-6">
+					<span class="text-primary fw-bolder display"><i class="fa-solid fa-scale-balanced"></i>
+					</span>
+					<div class="position-relative my-4">
+						<div
+							class="position-absolute top-0 start-0 py-3 ms-n4 border-2 border-start border-primary"></div>
+						<h5>Commitment to Ethics</h5>
+					</div>
+					<p>We are committed to ethical practices in job posting and
+						recruitment, ensuring that all interactions on our platform are
+						fair and respectful.</p>
+				</div>
+
+				<div class="col-lg-3 col-md-4 col-sm-6">
+					<span class="text-primary fw-bolder"> <i class="fa-solid fa-at"></i>
+					</span>
+					<div class="position-relative my-4">
+						<div
+							class="position-absolute top-0 start-0 py-3 ms-n4 border-2 border-start border-primary"></div>
+						<h5>Author Verification</h5>
+					</div>
+					<p>Our dedicated team of authors personally verifies each job
+						posting to ensure its authenticity, filtering out any fake or
+						misleading opportunities before they are published.</p>
+				</div>
+
+			</div>
+		</div>
+
+	</section>
+	<!-- jquery library JS -->
+	<script src="/assets/js/jquery.min.js"></script>
+	<!-- Popper.js -->
+	<script src="/webjars/popper.js/2.9.2/umd/popper.min.js"></script>
+	<script src="/webjars/bootstrap/5.2.1/js/bootstrap.min.js"></script>
+
+	<footer>
+		<div th:replace="~{layout/footer :: footer}"></div>
+	</footer>
+
+</body>
+</html>

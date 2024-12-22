@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+
+<!--  tag for google ads and analytics -->
+<th:block th:replace="~{layout/headTags :: #body}"></th:block>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<meta charset="UTF-8">
+<link rel="stylesheet" href="css/bootstrap/bootstrap.min.css">
+<link rel="stylesheet" href="solstice-assets/fonts/fonts.css">
+
+
+<title>Contact - forfreshers.in</title>
+<meta name="description"
+	content="We’d love to talk about how we can help you.">
+
+<meta property="og:title" content="Contact">
+<meta property="og:description"
+	content="We’d love to talk about how we can help you.">
+<meta property="og:image"
+	th:content="@{/solstice-assets/images/logos/logoWithName.png}">
+<meta property="og:url" th:content="@{/contact}">
+
+<link rel="canonical" th:href="@{/contact}">
+
+<meta name="author" content="Saravanan Raja">
+
+</head>
+<body>
+	<header>
+		<div th:insert="~{layout/navbar :: navbar}"></div>
+	</header>
+
+	<section class="pb-12 pb-lg-24">
+		<div class="container">
+			<div class="text-center mb-16">
+				<h3 class="font-heading mb-4" >Contact</h3>
+				<p class="text-light-dark mb-0">We’d love to talk about how we
+					can help you.</p>
+			</div>
+			<div class="text-center d-flex flex-column justify-content-center">
+				<p class="">If you have any issues or queries regarding forfreshers.in, please feel free to reach out to our support team at  
+				<a class="text-link fw-bold " href="https://mail.google.com/mail/u/0/?view=cm&fs=1&to=support@forfreshers.in&tf=1">support@forfreshers.in</a>
+					</p>
+					
+					<p class="">  For FFAccount creation/Join forfreshers.in reach out to our admin  
+				<a class="text-link fw-bold " href="https://mail.google.com/mail/u/0/?view=cm&fs=1&to=admin@forfreshers.in&tf=1">admin@forfreshers.in</a>
+					</p>
+			</div>
+		</div>
+
+	</section>
+
+	<!-- jquery library JS -->
+	<script src="/assets/js/jquery.min.js"></script>
+	<!-- Popper.js -->
+	<script src="/webjars/popper.js/2.9.2/umd/popper.min.js"></script>
+	<script src="/webjars/bootstrap/5.2.1/js/bootstrap.min.js"></script>
+
+	<footer>
+		<div th:replace="~{layout/footer :: footer}"></div>
+	</footer>
+
+</body>
+</html>

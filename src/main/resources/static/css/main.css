@@ -1,0 +1,44 @@
+a.nav-link:hover {
+    color: red;
+}
+.text-indend{
+	text-indent: 2em;
+}
+.filter-blue-orange{
+	-webkit-filter: hue-rotate(176deg) saturate(1) contrast(2);
+}
+*::selection {
+    -webkit-tap-highlight-color: #ff7100cc;
+    --bs-highlight-bg: #ff7100cc;
+    background-color:#ff7100cc;
+    box-shadow:2px 2px black;
+    color:white;
+}
+.job-view-btn-arrow .job-view-btn:hover{
+	transition: .4s;
+	display: block;
+	transition: .4s;
+}
+
+.fade-text-end {
+    display: block;
+    max-width: 100%;        /* Constrain the width */
+    overflow: hidden;        /* Hide the overflowing text */
+    text-overflow: ellipsis; /* Optional: Add ellipsis if needed */
+    -webkit-mask-image: linear-gradient(90deg, rgba(0, 0, 0, 1) 70%, rgba(0, 0, 0, 0) 100%);
+    mask-image: linear-gradient(90deg, rgba(0, 0, 0, 1) 85%, rgba(0, 0, 0, 0) 100%);
+}
+
+.transition-1{
+	transition: 1s;
+}
+.transition-05{
+	transition: .5s;
+}
+
+ @media (max-width: 481px){
+ 	.mf-cursor {
+ 	}
+ }
+ 
+ 

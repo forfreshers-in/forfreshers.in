@@ -1,12 +1,8 @@
 
-$(document).ready(function(){
-	$('#company-name-datalist').autocomplete({
-		
-	})
-})
+
 
 $(function() {
-    "use strict";
+    
 
      // chart 1
 	 

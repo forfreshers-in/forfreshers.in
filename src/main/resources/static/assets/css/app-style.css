@@ -1,7 +1,6 @@
 /*
-Template Name: Dashtreme Admin
-Author: CODERVENT
-Email: codervent@gmail.com
+Template Name: Forfreshers Admin
+Author: Saravanan Raja
 File: app-style
 */
 
@@ -400,7 +399,7 @@ hr {
   border-radius: 4px;
   border: 0px solid black;
 }
-
+/*
 #theme1 {
   background-image: url(../images/bg-themes/1.png);
   background-size: 100% 100%;
@@ -437,6 +436,7 @@ hr {
   background-position: center;
   transition: background .3s;
 }
+*/
 #theme7 {
   background-image: linear-gradient(45deg, #0c675e, #069e90);
   background-size: 100% 100%;
@@ -493,7 +493,7 @@ hr {
   background-position: center;
   transition: background .3s;
 }
-
+/*
 body.bg-theme1 {
   background-image: url(../images/bg-themes/1.png);
 }
@@ -512,6 +512,7 @@ body.bg-theme5 {
 body.bg-theme6 {
   background-image: url(../images/bg-themes/6.png);
 }
+*/
 body.bg-theme7 {
   background-image: linear-gradient(45deg, #0c675e, #069e90);
 } 
@@ -2998,7 +2999,7 @@ table.grid td {
 [class*="icheck-material"] {
   min-height: 22px;
   margin-top: 6px;
-  margin-bottom: 6px 
+  margin-bottom: 6px ;
   padding-left: 0px; }
   [class*="icheck-material"] > label {
     padding-left: 29px !important;
@@ -3646,11 +3647,94 @@ table.grid td {
     padding: 0px 10px 0 5px;
   }
 
-
 }
 
 
 
+.share-container {
+    position: relative;
+    display: inline-block;
+}
 
+.share-btn {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.share-menu {
+    display: flex;
+    position: fixed;
+    bottom: 0px;
+    transform: translateX(-50%);
+    left:50%;
+    background-color: #bfbfbff2;
+    border: 1px solid #ddd;
+    border-radius: 10px 10px 0px 0px;
+    padding-inline:5px;
+    z-index: 100;
+    box-shadow: 0px 0px 16px 0px rgba(0, 0, 0, 1.1);
+}
+
+.share-menu a {
+    padding: 10px 20px;
+    display: block;
+    text-decoration: none;
+    color: #333;
+}
+
+.share-menu a:hover {
+    background-color: #f1f1f1;
+}
+
+/* Show the share menu on hover for desktop */
+@media (min-width: 768px) {
+    .share-container:hover .share-menu {
+        display: block;
+    }
+}
+
+
+tr, a{
+	cursor: pointer;
+}
+
+/* infinity rotaion*/
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.rotate {
+  display: inline-block;
+  animation: rotate 2s linear infinite;
+}
+
+/*
+*/
+#description-input .ql-editor h5 {
+	background-color: #FF7100;
+	width: fit-content;
+	padding-right: 45px;
+	border-radius: 0px 10px 10px 0px;
+	padding-left: 10px;
+	color: white;
+	letter-spacing: 0px;
+	font-size: 1.2em;
+}
+
+#description-input{
+	background-color: #ffffff5e;
+}
+
+.awn-popup-confirm {
+    color: black;
+}
 
 

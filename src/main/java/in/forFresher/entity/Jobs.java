@@ -4,12 +4,16 @@ import java.sql.Date;
 import java.sql.Timestamp;
 import java.util.Set;
 
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
+
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -19,6 +23,9 @@ import jakarta.persistence.ManyToMany;
 import jakarta.persistence.ManyToOne;
 
 @Entity
+@JsonIdentityInfo(
+		  generator = ObjectIdGenerators.PropertyGenerator.class, 
+		  property = "id")
 public class Jobs {
 
 	@Id
@@ -28,11 +35,11 @@ public class Jobs {
 	@Column(unique = true)
 	private String title;
 	
-	@ManyToOne(targetEntity = Company.class)
+	@ManyToOne( fetch = FetchType.LAZY)
 	@JoinColumn(name = "company")
 	private Company company;
 
-	@ManyToMany(cascade = CascadeType.ALL)
+	@ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
 	@JoinTable(name = "job_location", joinColumns = @JoinColumn(name = "job_id", referencedColumnName = "id"), inverseJoinColumns = @JoinColumn(name = "location_id", referencedColumnName = "id"))
 	private Set<Location> locations;
 
@@ -58,11 +65,11 @@ public class Jobs {
 	private String hrMail;
 	
 	//must be not null
-	private int fromBatch;
+	private Integer fromBatch;
 	
-	private int toBatch;
+	private Integer toBatch;
 	
-	@ManyToMany(cascade = CascadeType.ALL)
+	@ManyToMany(cascade = CascadeType.ALL,  fetch = FetchType.LAZY)
 	@JoinTable(name="job_position", joinColumns = @JoinColumn( name = "job_id", referencedColumnName = "id" ), inverseJoinColumns = @JoinColumn(name ="position_id", referencedColumnName = "id"))
 	private Set<Position> positions;
 
@@ -70,17 +77,25 @@ public class Jobs {
 	@Column(columnDefinition = "TEXT")
 	private String description;
 	
-	@Column(name = "qualification")
-	private String qualification;
+
+	@ManyToMany(cascade = CascadeType.ALL,  fetch = FetchType.LAZY)
+	@JoinTable(name="job_qualification", joinColumns = @JoinColumn( name = "job_id", referencedColumnName = "id" ), inverseJoinColumns = @JoinColumn(name ="qualification_id", referencedColumnName = "id"))
+	private Set<Qualification> qualification;
 	
-	@Column(nullable = false, name = "min_salary")
-	private float  minSalary;
+	@Column(name = "min_salary")
+	private Float  minSalary;
 
 	@Column(name = "max_salary")
-	private float maxSalary;
+	private Float maxSalary;
+
+	@Column(name = "experience_from")
+	private Float experienceFrom;
+	
+	@Column(name = "experience_to")
+	private Float experienceTo;
 
 	@Column(name = "expired_at")
-	private Date expiredAt;
+	private Timestamp expiredAt;
 	
 	@CreationTimestamp
 	@Column(name = "created_at")
@@ -90,7 +105,7 @@ public class Jobs {
 	@Column(name = "updated_at")
 	private Timestamp updatedAt;
 	
-	@ManyToMany(cascade = CascadeType.ALL)
+	@ManyToMany(cascade = CascadeType.ALL,  fetch = FetchType.LAZY)
 	@JoinTable(name="job_type", joinColumns = @JoinColumn( name = "job_id", referencedColumnName = "id" ), inverseJoinColumns = @JoinColumn(name ="type_id", referencedColumnName = "id"))
 	private Set<Type> types;
 	
@@ -98,9 +113,9 @@ public class Jobs {
     @JoinColumn(name = "author_id", nullable = false)
 	private Users author;
 	
-	//published status - Draft(-1), Unpublished(0), published(1)
+	//published status - Draft(-1), Unpublished(0), Published(1)
 	@Column(nullable = false)
-	private byte published;
+	private Byte published;
 
 	public Long getId() {
 		return id;
@@ -174,19 +189,19 @@ public class Jobs {
 		this.hrMail = hrMail;
 	}
 
-	public int getFromBatch() {
+	public Integer getFromBatch() {
 		return fromBatch;
 	}
 
-	public void setFromBatch(int fromBatch) {
+	public void setFromBatch(Integer fromBatch) {
 		this.fromBatch = fromBatch;
 	}
 
-	public int getToBatch() {
+	public Integer getToBatch() {
 		return toBatch;
 	}
 
-	public void setToBatch(int toBatch) {
+	public void setToBatch(Integer toBatch) {
 		this.toBatch = toBatch;
 	}
 
@@ -206,35 +221,51 @@ public class Jobs {
 		this.description = description;
 	}
 
-	public String getQualification() {
+	public Set<Qualification> getQualification() {
 		return qualification;
 	}
 
-	public void setQualification(String qualification) {
+	public void setQualification(Set<Qualification> qualification) {
 		this.qualification = qualification;
 	}
 
-	public float getMinSalary() {
+	public Float getMinSalary() {
 		return minSalary;
 	}
 
-	public void setMinSalary(int minSalary) {
+	public Float getMaxSalary() {
+		return maxSalary;
+	}
+	
+	public Float getExperience_from() {
+		return experienceFrom;
+	}
+
+	public void setExperience_from(Float experienceFrom) {
+		this.experienceFrom = experienceFrom;
+	}
+
+	public Float getExperience_to() {
+		return experienceTo;
+	}
+
+	public void setExperience_to(Float experienceTo) {
+		this.experienceTo = experienceTo;
+	}
+
+	public void setMinSalary(Float minSalary) {
 		this.minSalary = minSalary;
 	}
 
-	public float getMaxSalary() {
-		return maxSalary;
-	}
-
-	public void setMaxSalary(int maxSalary) {
+	public void setMaxSalary(Float maxSalary) {
 		this.maxSalary = maxSalary;
 	}
 
-	public Date getExpiredAt() {
+	public Timestamp getExpiredAt() {
 		return expiredAt;
 	}
 
-	public void setExpiredAt(Date expiredAt) {
+	public void setExpiredAt(Timestamp expiredAt) {
 		this.expiredAt = expiredAt;
 	}
 
@@ -270,12 +301,23 @@ public class Jobs {
 		this.author = author;
 	}
 
-	public byte getPublished() {
+	public Byte getPublished() {
 		return published;
 	}
 
-	public void setPublished(byte published) {
+	public void setPublished(Byte published) {
 		this.published = published;
 	}
-	
+
+	@Override
+	public String toString() {
+		return "Jobs [id=" + id + ", title=" + title + ", company=" + company + ", locations=" + locations
+				+ ", category=" + category + ", dateAndTime=" + dateAndTime + ", lastDate=" + lastDate + ", applyLink="
+				+ applyLink + ", hrMail=" + hrMail + ", fromBatch=" + fromBatch + ", toBatch=" + toBatch
+				+ ", positions=" + positions + ", description=" + description + ", qualification=" + qualification
+				+ ", minSalary=" + minSalary + ", maxSalary=" + maxSalary + ", experienceFrom=" + experienceFrom
+				+ ", experienceTo=" + experienceTo + ", expiredAt=" + expiredAt + ", createdAt=" + createdAt
+				+ ", updatedAt=" + updatedAt + ", types=" + types + ", author=" + author + ", published=" + published
+				+ "]";
+	}
 }
