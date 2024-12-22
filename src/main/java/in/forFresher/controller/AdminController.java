@@ -38,17 +38,14 @@ public class AdminController {
 	public ModelAndView showJobAddForm() {
 		mv = new ModelAndView();
 		mv.addObject("active_nav", "addjob");
-		mv.addObject("companies", companyRepository.findAll()); 
-		mv.addObject("categories", categoryRepository.findAll());
+		
 		// types, qualifications, locations, positions, company
 		mv.setViewName("admin/newJobForm");
 		return mv;
 	} 
 	
 	@GetMapping("/myjobs")
-	public ModelAndView showMyJobs(HttpServletResponse response) {
-		response.addHeader("X-Frame-Options", "SAMEORIGIN");
-		response.addHeader("en peru", "meenakumari");
+	public ModelAndView showMyJobs() {
 		mv = new ModelAndView();
 		mv.addObject("active_nav", "myjobs");
 		mv.setViewName("admin/myJobs");
@@ -63,11 +60,11 @@ public class AdminController {
 		return mv;
 	}
 	
-	@GetMapping("/setting")
+	@GetMapping("/settings")
 	public ModelAndView showAdminSetting() {
 		mv = new ModelAndView();
 		mv.addObject("active_nav", "setting");
-		mv.setViewName("admin/setting");
+		mv.setViewName("admin/settings");
 		return mv;
 	}
 }

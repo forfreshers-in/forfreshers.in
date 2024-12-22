@@ -70,7 +70,7 @@
 				<li class="nav-item"><a
 					class="nav-link dropdown-toggle dropdown-toggle-nocaret"
 					data-toggle="dropdown" href="#"> <span class="user-profile"><img
-							src="https://via.placeholder.com/110x110" class="img-circle"
+							th:src="@{/images/peoples/profile.webp}" class="img-circle"
 							alt="user avatar"></span>
 				</a>
 					<ul class="dropdown-menu dropdown-menu-right">
@@ -79,7 +79,7 @@
 								<div class="media">
 									<div class="avatar">
 										<img class="align-self-start mr-3"
-											src="https://via.placeholder.com/110x110" alt="user avatar">
+											th:src="@{/images/peoples/profile.webp}" alt="user avatar">
 									</div>
 									<div class="media-body">
 										<h6 class="mt-2 user-title">
@@ -91,13 +91,13 @@
 								</div>
 						</a></li>
 						<li class="dropdown-divider"></li>
-						<li class="dropdown-item"><i class="icon-envelope mr-2"></i>
+						<li class="dropdown-item d-none"><i class="icon-envelope mr-2"></i>
 							Inbox</li>
 						<li class="dropdown-divider"></li>
-						<li class="dropdown-item"><i class="icon-wallet mr-2"></i>
+						<li class="dropdown-item d-none"><i class="icon-wallet mr-2"></i>
 							Account</li>
 						<li class="dropdown-divider"></li>
-						<li class="dropdown-item"><i class="icon-settings mr-2"></i>
+						<li class="dropdown-item"><i class="icon-settings mr-2"></i><span class="position-absolute l0 bg-warning rounded-pill px-2" style="left:50%;">soon</span>
 							Setting</li>
 						<li class="dropdown-divider"></li>
 						<li class="dropdown-item"><a href="/logout"> <i

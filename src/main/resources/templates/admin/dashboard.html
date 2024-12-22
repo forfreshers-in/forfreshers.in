@@ -12,9 +12,6 @@
 <link href="/assets/css/pace.min.css" rel="stylesheet" />
 <script src="/assets/js/pace.min.js"></script>
 <!--favicon-->
-<!-- Vector CSS -->
-<link href="/assets/plugins/vectormap/jquery-jvectormap-2.0.2.css"
-	rel="stylesheet" />
 <!-- simplebar CSS-->
 <link href="/assets/plugins/simplebar/css/simplebar.css"
 	rel="stylesheet" />
@@ -36,7 +33,7 @@
 
 </head>
 
-<body class="bg-theme bg-theme1">
+<body class="bg-theme bg-theme8">
 
 	<!-- Start wrapper-->
 	<div id="wrapper">
@@ -54,9 +51,10 @@
 		<div class="clearfix"></div>
 
 		<div class="content-wrapper">
-			<div class="container-fluid">
+		<p class="text-danger text-center">Dashboard disabled</p>
+			<div class="container-fluid" style="filter: blur(3px);">
 
-				<!--Start Dashboard Content-->
+				<!-- Start Dashboard Content-->
 
 				<div class="card mt-3">
 					<div class="card-content">
@@ -71,7 +69,7 @@
 										<div class="progress-bar" style="width: 55%"></div>
 									</div>
 									<p class="mb-0 text-white small-font">
-										Total Orders <span class="float-right">+4.2% <i
+										Total posts <span class="float-right">+4.2% <i
 											class="zmdi zmdi-long-arrow-up"></i></span>
 									</p>
 								</div>
@@ -113,7 +111,7 @@
 										<div class="progress-bar" style="width: 55%"></div>
 									</div>
 									<p class="mb-0 text-white small-font">
-										Messages <span class="float-right">+2.2% <i
+										views <span class="float-right">+2.2% <i
 											class="zmdi zmdi-long-arrow-up"></i></span>
 									</p>
 								</div>
@@ -250,7 +248,7 @@
 					<div class="col-12 col-lg-12">
 						<div class="card">
 							<div class="card-header">
-								Recent Order Tables
+								Recent job posts
 								<div class="card-action">
 									<div class="dropdown">
 										<a href="javascript:void();"
@@ -274,93 +272,17 @@
 									class="table align-items-center table-flush table-borderless">
 									<thead>
 										<tr>
-											<th>Product</th>
-											<th>Photo</th>
-											<th>Product ID</th>
-											<th>Amount</th>
+											<th>company</th>
+											<th>job ID</th>
 											<th>Date</th>
-											<th>Shipping</th>
 										</tr>
 									</thead>
 									<tbody>
 										<tr>
-											<td>Iphone 5</td>
-											<td><img src="https://via.placeholder.com/110x110"
-												class="product-img" alt="product img"></td>
-											<td>#9405822</td>
-											<td>$ 1250.00</td>
-											<td>03 Aug 2017</td>
-											<td><div class="progress shadow" style="height: 3px;">
-													<div class="progress-bar" role="progressbar"
-														style="width: 90%"></div>
-												</div></td>
+											<td>ABC</td>
+											<td>230</td>
+											<td>03 Aug 2024</td>
 										</tr>
-
-										<tr>
-											<td>Earphone GL</td>
-											<td><img src="https://via.placeholder.com/110x110"
-												class="product-img" alt="product img"></td>
-											<td>#9405820</td>
-											<td>$ 1500.00</td>
-											<td>03 Aug 2017</td>
-											<td><div class="progress shadow" style="height: 3px;">
-													<div class="progress-bar" role="progressbar"
-														style="width: 60%"></div>
-												</div></td>
-										</tr>
-
-										<tr>
-											<td>HD Hand Camera</td>
-											<td><img src="https://via.placeholder.com/110x110"
-												class="product-img" alt="product img"></td>
-											<td>#9405830</td>
-											<td>$ 1400.00</td>
-											<td>03 Aug 2017</td>
-											<td><div class="progress shadow" style="height: 3px;">
-													<div class="progress-bar" role="progressbar"
-														style="width: 70%"></div>
-												</div></td>
-										</tr>
-
-										<tr>
-											<td>Clasic Shoes</td>
-											<td><img src="https://via.placeholder.com/110x110"
-												class="product-img" alt="product img"></td>
-											<td>#9405825</td>
-											<td>$ 1200.00</td>
-											<td>03 Aug 2017</td>
-											<td><div class="progress shadow" style="height: 3px;">
-													<div class="progress-bar" role="progressbar"
-														style="width: 100%"></div>
-												</div></td>
-										</tr>
-
-										<tr>
-											<td>Hand Watch</td>
-											<td><img src="https://via.placeholder.com/110x110"
-												class="product-img" alt="product img"></td>
-											<td>#9405840</td>
-											<td>$ 1800.00</td>
-											<td>03 Aug 2017</td>
-											<td><div class="progress shadow" style="height: 3px;">
-													<div class="progress-bar" role="progressbar"
-														style="width: 40%"></div>
-												</div></td>
-										</tr>
-
-										<tr>
-											<td>Clasic Shoes</td>
-											<td><img src="https://via.placeholder.com/110x110"
-												class="product-img" alt="product img"></td>
-											<td>#9405825</td>
-											<td>$ 1200.00</td>
-											<td>03 Aug 2017</td>
-											<td><div class="progress shadow" style="height: 3px;">
-													<div class="progress-bar" role="progressbar"
-														style="width: 100%"></div>
-												</div></td>
-										</tr>
-
 									</tbody>
 								</table>
 							</div>
@@ -409,8 +331,6 @@
 	<script src="/assets/plugins/simplebar/js/simplebar.js"></script>
 	<!-- sidebar-menu js -->
 	<script src="/assets/js/sidebar-menu.js"></script>
-	<!-- loader scripts -->
-	<script src="/assets/js/jquery.loading-indicator.js"></script>
 	<!-- Custom scripts -->
 	<script src="/assets/js/app-script.js"></script>
 	<!-- Chart js -->

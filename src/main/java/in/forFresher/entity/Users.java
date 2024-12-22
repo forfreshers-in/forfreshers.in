@@ -1,6 +1,7 @@
 package in.forFresher.entity;
 
 import java.sql.Timestamp;
+import java.time.LocalDateTime;
 
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
@@ -16,6 +17,7 @@ import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
 @Entity
+@Table(name = "users")
 public class Users {
 	
 	@Id
@@ -50,6 +52,18 @@ public class Users {
 	@Column(nullable = false, updatable = false)
     @CreationTimestamp
     private Timestamp createdAt;
+	
+	private Boolean is_activated ;
+	
+	private String activation_token ;
+	
+	private Timestamp token_expiration ;
+	
+	private Boolean active_status;
+	
+	private String resetToken;
+	 
+	private LocalDateTime resetTokenExpiry;
 	
 	// Getters and Setters
 
@@ -131,6 +145,54 @@ public class Users {
 
 	public void setCreatedAt(Timestamp createdAt) {
 		this.createdAt = createdAt;
+	}
+
+	public Boolean getIs_activated() {
+		return is_activated;
+	}
+
+	public void setIs_activated(Boolean is_activated) {
+		this.is_activated = is_activated;
+	}
+
+	public String getActivation_token() {
+		return activation_token;
+	}
+
+	public void setActivation_token(String activation_token) {
+		this.activation_token = activation_token;
+	}
+
+	public Timestamp getToken_expiration() {
+		return token_expiration;
+	}
+
+	public void setToken_expiration(Timestamp token_expiration) {
+		this.token_expiration = token_expiration;
+	}
+	
+	public String getResetToken() {
+		return resetToken;
+	}
+
+	public void setResetToken(String resetToken) {
+		this.resetToken = resetToken;
+	}
+
+	public LocalDateTime getResetTokenExpiry() {
+		return resetTokenExpiry;
+	}
+
+	public void setResetTokenExpiry(LocalDateTime resetTokenExpiry) {
+		this.resetTokenExpiry = resetTokenExpiry;
+	}
+
+	public Boolean getActive_status() {
+		return active_status;
+	}
+
+	public void setActive_status(Boolean active_status) {
+		this.active_status = active_status;
 	}
 	
 	

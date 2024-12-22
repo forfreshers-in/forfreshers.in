@@ -1,16 +1,26 @@
 package in.forFresher.services;
 
+import java.time.LocalDateTime;
+import java.util.UUID;
+
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 
 import in.forFresher.configuration.UserInfoDetails;
+import in.forFresher.entity.Users;
+import in.forFresher.repository.UsersRepository;
 
 @Service
 public class UserService {
 	
-
+	private UsersRepository userRepo;
+	
+	public UserService(UsersRepository userRepo) {
+		this.userRepo = userRepo;
+	}
+	
     public boolean isAuthenticated() {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         return authentication != null && authentication.isAuthenticated();
@@ -51,4 +61,6 @@ public class UserService {
         Long authenticatedUserId = getAuthenticatedUserId();
         return authenticatedUserId.equals(userId);
     }
+    
+    
 }

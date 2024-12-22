@@ -65,10 +65,12 @@ $(function() {
 		$('[data-toggle="tooltip"]').tooltip()
 	})
 
-	// setting default theme
+	// setting user selected theme
 	let themeCookie = getCookie("ADM_BG")
 	if (themeCookie != null) {
 		$('body').attr('class', themeCookie);
+	}else{
+		$('body').attr('class', 'bg-theme bg-theme8');
 	}
 	// theme setting
 	$(".switcher-icon").on("click", function(e) {

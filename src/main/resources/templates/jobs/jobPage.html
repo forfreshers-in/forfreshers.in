@@ -77,8 +77,9 @@ h5 {
 				<div class="container mt-2 p-3 shadow">
 					<div class="position-relative">
 						<h4 class="font-heading mb-0 pb-0 fw-bold">
-							<span th:each="position: ${jobDetails.positions}"> <span
-								th:text="${position.name}"></span>
+							<span th:each="position, iterStat : ${jobDetails.positions}">
+								<span th:text="${position.name}"></span><span
+								th:if="${!iterStat.last}">, </span>
 							</span>
 						</h4>
 						<p class="mb-2 mt-0 bt-0 text-dark"
@@ -94,7 +95,7 @@ h5 {
 								th:each="location, istat: ${jobDetails.locations}"> <span
 									th:if="${istat.index} == 0" th:text="${location.city}"></span>
 									<span style="display: none;" id="hidden-locations"
-									th:if="${istat.index} > 0"> , <span
+									th:if="${istat.index} > 0">, <span
 										th:text="${location.city}"></span>
 								</span>
 							</span>
@@ -241,7 +242,8 @@ h5 {
 							</span> <!-- Case where experience_from and experience_to are equal -->
 								<span
 								th:if="${jobDetails.experience_from != null && jobDetails.experience_to != null && jobDetails.experience_from == jobDetails.experience_to}">
-									<p class="text-dark text-indend" th:if="${jobDetails.experience_from == 0}">Freshers / 0
+									<p class="text-dark text-indend"
+										th:if="${jobDetails.experience_from == 0}">Freshers / 0
 										Year Experience</p>
 									<p class="text-dark text-indend"
 										th:if="${jobDetails.experience_from != 0}">
